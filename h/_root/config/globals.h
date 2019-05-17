@@ -47,8 +47,11 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
+
+#include "_root/generic/fdrv_FaultHandler.h"
 #include "_root/generic/fdrv_TrapHandler.h"
 #include "_root/generic/task_manager.h"
+#include "_root/generic/task_scheduler.h"
 
 /* ***********************************************************************************************
  * PROJECT SPECIFIC INCLUDES
@@ -105,54 +108,6 @@ typedef union
 	volatile uint16_t reg_block;    // buffer for 16-bit word read/write operations
 	volatile SFR16b_FRAME_t flags;  // data structure for single bit addressing operations
 }SPECIAL_FUNCTION_REGISTER_t;
-
-/*@@run_main_loop
- * ***********************************************************************************************
- * Description:
- * [run_main_loop] is a global flag, which enables a CPU reset from any part of the firmware.
- * This is meant to be used as "main fuse" in case something is badly going out of control 
- * and the CPU has to be restarted in a deterministic way.
- * 
- * When [run_main_loop] is set to zero, the scheduler will complete the execution of the most 
- * recent task end exit the main while() loop, where a CPU_RESET instruction will reset the CPU,
- * effectively causing a system restart.
- * 
- * If an immediate restart is necessary, use the CPU_RESET macro directly.
- * 
- * See also:
- * CPU_RESET
- * ***********************************************************************************************/
-extern volatile uint16_t run_main_loop;
-
-
-/*@@CPU_LOAD_DEBUG_BUFFER_LENGTH
- * ***********************************************************************************************
- * Description:
- * CPU load and task execution time monitoring can be enabled internally during debug mode
- * by setting this option =1.
- * 
- * When enabled, two data arrays are used to log most recent CPU meter and task execution time
- * meter results. This function collects data continuously by filling the arrays from index 0
- * to n, rolls over and continues to add data from index 0. A software breakpoint needs to be 
- * placed to stop code execution and inspect the collected data arrays.
- * 
- * CPU_LOAD_DEBUG_BUFFER_LENGTH determines the length of the data arrays.
- * 
- * See also:
- * CPU_LOAD_DEBUG_BUFFER_LENGTH
- * ***********************************************************************************************/
-
-// in debugging mode two generic arrays are available for CPU load and task execution time
-// measurements
-#if (__DEBUG && (USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS == 1))
-#define CPU_LOAD_DEBUG_BUFFER_LENGTH     128
-extern volatile uint16_t task_time_buffer[];
-extern volatile uint16_t cpu_time_buffer[];
-#endif
-
- /* ***********************************************************************************************
- * PROTOTYPES
- * ***********************************************************************************************/
 
     
 

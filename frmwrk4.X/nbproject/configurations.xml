@@ -13,6 +13,7 @@
           <itemPath>../h/_root/generic/fdrv_FaultHandler.h</itemPath>
           <itemPath>../h/_root/generic/task_manager.h</itemPath>
           <itemPath>../h/_root/generic/fdrv_TrapHandler.h</itemPath>
+          <itemPath>../h/_root/generic/task_scheduler.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="apl" displayName="apl" projectFiles="true">
@@ -85,6 +86,7 @@
           <itemPath>../src/_root/generic/fdrv_FaultHandler.c</itemPath>
           <itemPath>../src/_root/generic/task_manager.c</itemPath>
           <itemPath>../src/_root/generic/fdrv_TrapHandler.c</itemPath>
+          <itemPath>../src/_root/generic/task_scheduler.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="apl" displayName="apl" projectFiles="true">
@@ -261,7 +263,7 @@
         <property key="oXC16gcc-sfr-warn" value="false"/>
         <property key="oXC16gcc-smar-io-lvl" value="1"/>
         <property key="oXC16gcc-smart-io-fmt" value=""/>
-        <property key="optimization-level" value="3"/>
+        <property key="optimization-level" value="1"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros" value=""/>
@@ -550,6 +552,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="90"/>
         <property key="hwtoolclock.units" value="mips"/>
@@ -1408,7 +1411,6 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="90"/>
         <property key="hwtoolclock.units" value="mips"/>

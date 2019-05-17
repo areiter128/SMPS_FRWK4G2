@@ -46,7 +46,7 @@
 #define	_ROOT_TASK_MANAGER_H_
     
 #include <stdint.h>
-#include "_root/generic/fdrv_FaultHandler.h"
+#include <stdbool.h>
 
 /* Data structures */
 
