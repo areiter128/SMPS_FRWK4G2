@@ -12,7 +12,7 @@
         <logicalFolder name="generic" displayName="generic" projectFiles="true">
           <itemPath>../h/_root/generic/fdrv_FaultHandler.h</itemPath>
           <itemPath>../h/_root/generic/task_manager.h</itemPath>
-          <itemPath>../h/_root/generic/traps.h</itemPath>
+          <itemPath>../h/_root/generic/fdrv_TrapHandler.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="apl" displayName="apl" projectFiles="true">

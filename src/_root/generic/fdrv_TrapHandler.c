@@ -1,10 +1,10 @@
 /***************************************************************************************************
  * © 2006 Microchip Technology Inc.
  *
- * FileName:        traps.c
+ * FileName:        fdrv_TrapHandler.c
  * Dependencies:    Header file traps.h
- * Processor:       dsPIC33FJxxx/dsPIC33EPxxx
- * Compiler:        MPLAB® C30 v3.00 or MPLAB® X16 v1.20 or higher
+ * Processor:       dsPIC33FJxxx/dsPIC33EPxxx/dsPIC33CXxxx
+ * Compiler:        MPLAB® X16 v1.36 or higher
  *
  * SOFTWARE LICENSE AGREEMENT:
  * Microchip Technology Incorporated ("Microchip") retains all ownership and intellectual property 
@@ -39,6 +39,7 @@
  * 10/07/2009	Andreas Reiter		HPC		1.1		added a header file and a default trap handler
  *													routine for better integration
  * 07/19/2016	Andreas Reiter		MCHP	1.2		Added data structure for trap monitoring
+ * 05/17/2019   M91406              MCHP    1.3     Added support for dsPIC33C and removed support for C30 C Complier
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *
  * ADDITIONAL NOTES:
@@ -54,12 +55,24 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "_root/generic/traps.h"
+#include <stdbool.h>
+#include "_root/generic/fdrv_TrapHandler.h"
 #include "_root/config/globals.h"
 
-//uint16_t __attribute__((__persistent__))trap_counter;
-//uint16_t __attribute__((__persistent__))trap_identifier;
+uint16_t __attribute__((__persistent__))trap_counter;
+uint16_t __attribute__((__persistent__))trap_identifier;
 volatile TRAP_LOGGER_t traplog;          // data structure used as buffer for trap monitoring
+
+
+volatile uint16_t init_SoftTraps(bool accumulator_a_overflow_trap_enable, 
+                bool accumulator_b_overflow_trap_enable, 
+                bool accumulator_catastrophic_overflow_trap_enable)
+{
+
+    
+    
+    return(1);
+}
 
 // =================================================================================================
 //
@@ -88,11 +101,11 @@ void SaveTrapStatus()
 // them available after a soft CPU reset.
 //
 // =================================================================================================
-void GetTrapStatus()
+volatile uint16_t GetTrapStatus()
 {
 //    traplog.trap_id = trap_identifier;
 //    trap_counter = traplog.count;
-    return;
+    return(1);
 }
 
 // =================================================================================================

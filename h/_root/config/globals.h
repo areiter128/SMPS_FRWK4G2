@@ -47,7 +47,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "_root/generic/traps.h"
+#include "_root/generic/fdrv_TrapHandler.h"
 #include "_root/generic/task_manager.h"
 
 /* ***********************************************************************************************

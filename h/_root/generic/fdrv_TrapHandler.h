@@ -186,19 +186,19 @@ typedef struct
     volatile INTERRUPT_CONTROL_REGISTER_t inttreg;
 }TRAP_LOGGER_t;
 
- //extern TRAP_LOGGER_t __attribute__((__persistent__))traplog; // data structure used as buffer for trap monitoring
-extern volatile TRAP_LOGGER_t traplog; // data structure used as buffer for trap monitoring
+extern volatile TRAP_LOGGER_t __attribute__((__persistent__))traplog; // data structure used as buffer for trap monitoring
+//extern volatile TRAP_LOGGER_t traplog; // data structure used as buffer for trap monitoring
 
 // =================================================================================================
 //
 //	PROTOTYPES
 //
 // =================================================================================================
-extern int init_SoftTraps(unsigned int accumulator_a_overflow_trap_enable, 
-                unsigned int accumulator_b_overflow_trap_enable, 
-                unsigned int accumulator_catastrophic_overflow_trap_enable);
+extern volatile uint16_t init_SoftTraps(bool accumulator_a_overflow_trap_enable, 
+                bool accumulator_b_overflow_trap_enable, 
+                bool accumulator_catastrophic_overflow_trap_enable);
 
-extern void GetTrapStatus();
+extern volatile uint16_t GetTrapStatus();
 extern void DefaultTrapHandler(TRAP_ID_e trap_id);
 
 extern void __attribute__((__interrupt__)) _HardTrapError(void);
