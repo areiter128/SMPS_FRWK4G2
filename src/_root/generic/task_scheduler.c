@@ -8,6 +8,29 @@
 
 #include "_root/generic/task_scheduler.h" 
 
+/* ***********************************************************************************************
+ * DECLARATIONS
+ * ***********************************************************************************************/
+volatile uint16_t run_scheduler = 1;     // Flag used to reset the main loop, forcing a warm reset when set != 1
+
+#if __DEBUG
+volatile uint16_t task_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
+volatile uint16_t cpu_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
+#endif
+
+/*@@exec_scheduler
+ * ************************************************************************************************
+ * Summary:
+ * Main scheduler function
+ *
+ * Parameters:
+ *	(none)
+ * 
+ * Description:
+ * This scheduler represents the main() loop of the embedded firmware. When 
+ * it's called, it's executed continuously until the flag "run_scheduler" is 
+ * set to ZERO by any external process.
+ * ***********************************************************************************************/
 
 inline volatile uint16_t exec_scheduler(void) {
 
@@ -36,9 +59,9 @@ inline volatile uint16_t exec_scheduler(void) {
 
     // after the basic steps, the rest of the configuration runs as part of the scheduler,
     // where execution can be monitored and faults can be properly handled.
-    while (run_main_loop) 
+    while (run_scheduler) 
     {
-
+      
         // Wait for timer to expire before calling the next task
         while (
            !(*task_mgr.reg_task_timer_irq_flag & task_mgr.task_timer_irq_flag_mask)

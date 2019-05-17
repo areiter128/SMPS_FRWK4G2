@@ -59,7 +59,7 @@ extern "C" {
  * See also:
  * CPU_RESET
  * ***********************************************************************************************/
-extern volatile uint16_t run_main_loop;
+extern volatile uint16_t run_scheduler;
 
 
 /*@@CPU_LOAD_DEBUG_BUFFER_LENGTH

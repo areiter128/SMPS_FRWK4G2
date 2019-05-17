@@ -44,12 +44,6 @@
  * Created on July 03, 2017, 09:32 PM
  ******************************************************************************/
 
-//#include "_root/config/globals.h"   // globals.h also include the 4-layer headers for 
-                                    //   - Application Layer (APL)
-                                    //   - Hardware Abstraction Layer (HAL)
-                                    //   - Microcontroller Abstraction Layer (MCAL)
-                                    //   - Special Function Layer (SFL)
-
 #include "_root/generic/task_scheduler.h"
 
 int main(void) {

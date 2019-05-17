@@ -79,9 +79,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="_root" displayName="_root" projectFiles="true">
-        <logicalFolder name="config" displayName="config" projectFiles="true">
-          <itemPath>../src/_root/config/globals.c</itemPath>
-        </logicalFolder>
         <logicalFolder name="generic" displayName="generic" projectFiles="true">
           <itemPath>../src/_root/generic/fdrv_FaultHandler.c</itemPath>
           <itemPath>../src/_root/generic/task_manager.c</itemPath>
@@ -183,7 +180,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="dsPIC33CH-MP_DFP" vendor="Microchip" version="1.0.62"/>
+        <pack name="dsPIC33CH-MP_DFP" vendor="Microchip" version="1.0.65"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -263,7 +260,7 @@
         <property key="oXC16gcc-sfr-warn" value="false"/>
         <property key="oXC16gcc-smar-io-lvl" value="1"/>
         <property key="oXC16gcc-smart-io-fmt" value=""/>
-        <property key="optimization-level" value="1"/>
+        <property key="optimization-level" value="3"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros" value=""/>
@@ -347,7 +344,8 @@
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="true"/>
         <property key="mpreserve-all" value="false"/>
-        <property key="oXC16glb-macros" value="__10889_P33CH_R10__"/>
+        <property key="oXC16glb-macros"
+                  value="__10889_P33CH_R10__;__CODE_OPT_LEVEL_3__"/>
         <property key="output-file-format" value="elf"/>
         <property key="preserve-all" value="false"/>
         <property key="preserve-file" value=""/>
@@ -552,7 +550,6 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="90"/>
         <property key="hwtoolclock.units" value="mips"/>
@@ -1029,11 +1026,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.36</languageToolchainVersion>
+        <languageToolchainVersion>1.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="dsPIC33CK-MP_DFP" vendor="Microchip" version="1.0.41"/>
+        <pack name="dsPIC33CK-MP_DFP" vendor="Microchip" version="1.0.46"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1197,7 +1194,8 @@
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="true"/>
         <property key="mpreserve-all" value="false"/>
-        <property key="oXC16glb-macros" value="__10888_P33CK_R30__"/>
+        <property key="oXC16glb-macros"
+                  value="__10888_P33CK_R30__;__CODE_OPT_LEVEL_3__"/>
         <property key="output-file-format" value="elf"/>
         <property key="preserve-all" value="false"/>
         <property key="preserve-file" value=""/>
