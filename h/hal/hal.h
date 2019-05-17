@@ -33,14 +33,6 @@
 #include <xc.h>
 #include <stdbool.h>
 
-
-#ifdef __MY_BOARD_RXX__
-    
-// dsPIC33CH512MP506 Microsoft Software Defined Battery Charger Platform, Rev. 3
-  #include "hal/config/MyBoard_RXX_pinmap.h"
-
-#endif
-
 #include "mcal/mcal.h" // connect hardware to selected microcontroller
 
 #include "hal/config/syscfg_limits.h"

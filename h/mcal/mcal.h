@@ -56,14 +56,9 @@ extern "C" {
  * ***********************************************************************************************/
 /*
 */
-#if defined (__10967_SDBC_R30__)
-    
-// dsPIC33CH512MP506 Microsoft Software Defined Battery Charger Platform, Rev. 3
-  #include "hal/config/MyBoard_RXX_pinmap.h"
-  #define SLAVE_PROJECT_PRESENT   0
 
-#endif
-
+/* Include hardware descriptor file */
+#include "mcal/config/devcfg_pinmap.h"
 
 /* generic peripheral drives */    
 #include "dsPIC33C/p33SMPS_irq.h"

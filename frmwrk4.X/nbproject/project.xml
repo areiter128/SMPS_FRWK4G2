@@ -38,7 +38,11 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>MY_BOARD_RXX</name>
+                    <name>10889_P33CH_R10</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>10888_P33CK_R30</name>
                     <type>2</type>
                 </confElem>
             </confList>

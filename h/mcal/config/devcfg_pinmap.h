@@ -20,40 +20,35 @@
  */
 
 /* 
- * File:        devcfg_pinmap.h
- * Author:      M91406
- * Comments:    Hardware abstraction layer for various daughter cards
- * Revision history: 1.0    (initial release)
+ * File:   devcfg_pinmap.h
+ * Author: M91406
+ * Comments: Triage of hardware descriptor files
+ * Revision history: 
+ *      05/17/2019  v1.0 initial release
  */
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef _DEVICE_CONFIGURATION_PINMAP_H
-#define	_DEVICE_CONFIGURATION_PINMAP_H
+#ifndef MCAL_DEVICE_CONFIG_PINMAP_H
+#define	MCAL_DEVICE_CONFIG_PINMAP_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include "mcal/mcal.h"
 
-#ifdef __00124_R02_EP806__
-// dsPIC33EP128GS806 Digital Power Plug-In Module, Version 0.2
-  #include "00124_R02_EP806_pinmap.h"
-#endif
-#ifdef __00124_R10_EP806__
-// dsPIC33EP128GS806 Digital Power Plug-In Module, Version 1.0
-  #include "00124_R10_EP806_pinmap.h"
-#endif
-#ifdef __00124_R11_EP806__
-// dsPIC33EP128GS806 Digital Power Plug-In Module, Version 1.1
-  #include "00124_R11_EP806_pinmap.h"
-#endif
-#ifdef __00133_R30_MP506__
-// dsPIC33CH128MP506 Digital Power Plug-In Module, Version 3.0
-  #include "00133_R30_MP506_pinmap.h"
-#endif
-#ifdef __00146_R10_MP506__
-// dsPIC33EP128GS806 Digital Power Plug-In Module, Version 0.2
-  #include "00124_R02_EP806_pinmap.h"
-#endif
+#ifdef	__cplusplus
+extern "C" {
+#endif /* __cplusplus */
 
+    #ifdef __10888_P33CK_R30__
+        #include "10888_P33CK_R30_pinmap.h"
+    #endif
+    #ifdef __10889_P33CH_R10__
+        #include "10889_P33CH_R10_pinmap.h"
+    #endif
+    
+#ifdef	__cplusplus
+}
+#endif /* __cplusplus */
 
-#endif	/* _DEVICE_CONFIGURATION_PINMAP_H */
+#endif	/* MCAL_DEVICE_CONFIG_PINMAP_H */
 

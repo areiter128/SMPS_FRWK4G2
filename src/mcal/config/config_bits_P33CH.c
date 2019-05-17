@@ -1,26 +1,21 @@
-/**
-  @Generated PIC24 / dsPIC33 / PIC32MM MCUs Source File
+/* @@config_bits_P33CH.c
+ * ****************************************************************************
+ * File:   config_bits_P33CH.c
+ * Author: M91406
+ *
+ * Description:
+ * Configuration bits are setting essential chip features which determine 
+ * startup conditions when the device comes out of RESET and cannot be 
+ * changed during runtime.
+ * 
+ * This file defines the fundamental chip configuration for dsPIC33CH512MP506
+ * 
+ * History:
+ * Created on July 24, 2018, 09:32 PM
+ ******************************************************************************/
 
-  @Company:
-    Microchip Technology Inc.
-
-  @File Name:
-    mcc.c
-
-  @Summary:
-    This is the mcc.c file generated using PIC24 / dsPIC33 / PIC32MM MCUs
-
-  @Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.85
-        Device            :  dsPIC33CH128MP506
-    The generated drivers are tested against the following:
-        Compiler          :  XC16 v1.35
-        MPLAB             :  MPLAB X v5.05
-*/
-
-// Configuration bits: selected in the GUI
+// Configuration bits for dsPIC33CH Dual Core devices
+#if defined (__dsPIC33CH512MP506__)
 
 // FS1ICD
 /* @@S1ISOLAT
@@ -273,6 +268,9 @@
 #pragma config S1WDTWIN = WIN25    //Watchdog Timer Window Select bits->WDT Window is 25% of WDT period
 #pragma config S1SWDTPS = PS1048576    //Sleep Mode Watchdog Timer Post Scaler select bits->1:1048576
 #pragma config S1FWDTEN = ON_SW    //Watchdog Timer Enable bit->WDT controlled via WDTCON.ON bit
+
+
+#endif  /* Config bits for dsPIC33CH Dual Core Devices */
 
 /**
  End of File

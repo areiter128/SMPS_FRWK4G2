@@ -49,6 +49,7 @@
 #include "_root/config/globals.h"
 #include "apl/resources/fdrv_FunctionLED.h"
 #include "hal/hal.h"
+#include "mcal/mcal.h"
 
 /* ***********************************************************************************************
  * DECLARATIONS

@@ -37,7 +37,10 @@
 #include <xc.h>
 #include <stdint.h>
 
-#include "_root/config/globals.h"
+#include "apl/apl.h"
+#include "hal/hal.h"
+#include "mcal/mcal.h"
+#include "sfl/sfl.h"
 
 /***************************************************************************
 ISR: 		T1Interrupt for Timer #1
