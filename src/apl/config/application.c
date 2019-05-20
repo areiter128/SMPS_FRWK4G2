@@ -57,7 +57,7 @@
 #include "mcal/mcal.h"
 
 // Defining the global APPLICATION object "application" of type APPLICATION_SETTINGS_t
-volatile APPLICATION_SETTINGS_t application; // global APPLICATION object holding settings, status and error code information
+volatile APPLICATION_t application; // global APPLICATION object holding settings, status and error code information
 
 // Private prototypes
 //Remove: volatile uint16_t initialize_main_loop(void);

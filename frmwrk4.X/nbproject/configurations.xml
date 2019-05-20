@@ -19,7 +19,7 @@
       <logicalFolder name="apl" displayName="apl" projectFiles="true">
         <logicalFolder name="config" displayName="config" projectFiles="true">
           <itemPath>../h/apl/config/tasks.h</itemPath>
-          <itemPath>../h/apl/config/ApplicationSettings.h</itemPath>
+          <itemPath>../h/apl/config/application.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="Resources" projectFiles="true">
           <itemPath>../h/apl/resources/fdrv_FunctionLED.h</itemPath>
@@ -90,7 +90,7 @@
         <logicalFolder name="config" displayName="config" projectFiles="true">
           <itemPath>../src/apl/config/tasks.c</itemPath>
           <itemPath>../src/apl/config/UserStartupCode.c</itemPath>
-          <itemPath>../src/apl/config/ApplicationSettings.c</itemPath>
+          <itemPath>../src/apl/config/application.c</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="Resources" projectFiles="true">
         </logicalFolder>

@@ -19,18 +19,20 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/*@@ApplicationSettings.h
+/*@@application.h
  *****************************************************************************
- * File:   ApplicationSettings.h
+ * File:   application.h
  *
  * Summary:
- * Globally defines the APPLICATION_SETTINGS_t data structure
+ * Globally defines the APPLICATION_t data structure
  *
  * Description:	
  * Most applications require a certain set of high-level information to set basic 
  * parameters for internal tasks and functions as well as status information. These 
- * parameters are consolidated in the APPLICATION_SETTINGS_t data structure, which 
- * is 100% user defined.
+ * parameters are consolidated in the APPLICATION_t data structure, which 
+ * is 100% user defined. The status, settings and data broadcast data structures
+ * added to the APPLICITON_t data structure should be considered as template only 
+ * and can be edited and modified as necessary. 
  * 
  * This file is shared between master and slave project to keep the application status 
  * information in synchronization.
@@ -48,8 +50,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef _APL_APPLICATION_SETTINGS_H_
-#define	_APL_APPLICATION_SETTINGS_H_
+#ifndef _APL_APPLICATION_SETTINGS_AND_DATA_H_
+#define	_APL_APPLICATION_SETTINGS_AND_DATA_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
@@ -218,11 +220,11 @@ typedef struct {
     volatile CONTROL_SWITCHING_TIMING_SETTINGS_t timing; // PWM switch timing setup 
     volatile APPLICATION_DATA_t data; // system voltages
     
-}APPLICATION_SETTINGS_t; // Data structure defining application settings, status flags and recent data
+}APPLICATION_t; // Data structure defining application settings, status flags and recent data
 
 
 // Global application data structure 
-extern volatile APPLICATION_SETTINGS_t application;
+extern volatile APPLICATION_t application;
 
 // Initialization of the application data structure
 extern volatile uint16_t init_ApplicationSettings(void);

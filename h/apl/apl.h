@@ -35,7 +35,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
 
-#include "config/ApplicationSettings.h"
+#include "config/application.h"
 
 //Remove: #include "task_ConverterStateControl.h"
 #include "../h/apl/tasks/task_FaultHandler.h"
@@ -47,7 +47,7 @@
  * GLOBAL APPLICATION LAYER USER OPTIONS
  * ***********************************************************************************************/
 #define EXECUTE_USER_STARTUP_CODE   1   // enables the execution of user startup code after SYSTEM_Reset
-                                        // (1 = functin call enabled, 0 = Function call disabled)
+                                        // (1 = function call enabled, 0 = Function call disabled)
 
 /* ***********************************************************************************************
  * PROTOTYPES

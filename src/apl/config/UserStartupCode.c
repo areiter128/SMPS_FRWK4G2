@@ -64,33 +64,6 @@ uint16_t ExecuteUserStartupCode(void) {
      * waits until the POWER GOOD output is set
      * *********************************************************************************
 
-    volatile uint16_t timeout = 0;
-
-    
-    // Power Supply Converter control signals
-    AUXPWR_OK_DETECT_INIT_INPUT; // configure AUXPWR_OK_DETECT control pin as input
-    EN_AUXPWR_INIT_OUTPUT; // configure EN_AUXPWR control pin as output
-    EN_AUXPWR_CNPU = 1;    // enable/disable internal weak pull-up resistor
-    EN_AUXPWR_ODC = 1;     // enable/disable open drain configuration
-
-    // Enable Aux Power Supply
-    EN_AUXPWR_SET;          // Set IC enable pin HIGH
-
-    // Poll for POWER_GOOD signal to be set by external auxiliary power circuit
-    while(AUXPWR_OK_DETECT_RD == 0 && EN_AUXPWR_RD == 1 && timeout < AUX_POWER_GOOD_TIMEOUT)
-    {
-        timeout++;  // Increment timeout counter
-    };
-
-
-    if ((timeout >= AUXPWR_OK_TIMEOUT) || (AUXPWR_OK_DETECT_RD == 0))
-    {
-        return(0);  // auxiliary power supply did not start as expected = failure
-    }
-    else{
-        return(1);  // auxiliary power supply did start as expected = success
-    }
-    */
     
     return(1);
 }
