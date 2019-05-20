@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@task_Idle.c
+/*!task_Idle.c
  * ****************************************************************************
  * File:   task_Idle.c
  * Author: M91406
@@ -42,7 +42,7 @@
 
 /* Private Declarations */
 
-/*@@task_Idle
+/*!task_Idle
  * ***********************************************************************************************
 
  * Summary:

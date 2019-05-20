@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/*@@application.h
+/*!application.h
  *****************************************************************************
  * File:   application.h
  *
@@ -63,7 +63,7 @@ extern "C" {
 
 
     
-/*@@APPLICATION_STATUS_t
+/*!APPLICATION_STATUS_t
  *****************************************************************************
  * 
  * Summary:

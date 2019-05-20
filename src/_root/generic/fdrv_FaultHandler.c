@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@fdrv_FaultHandler.c
+/*!fdrv_FaultHandler.c
  * ****************************************************************************
  * File:   fdrv_FaultHandler.c
  * Author: M91406
@@ -38,13 +38,13 @@
 #include "_root/generic/fdrv_FaultHandler.h"
 
 /* private function prototypes */
-inline uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj);
-inline uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj);
-inline uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj);
-inline uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code);
-inline uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj);
+inline volatile uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj);
+inline volatile uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj);
+inline volatile uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj);
+inline volatile uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code);
+inline volatile uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj);
 
-/*@@fault_object_list_pointer
+/*!fault_object_list_pointer
  * ***********************************************************************************************
  * Description:
  * The fault_object_list_pointer variable is used by the exec_FaultCheckSequential() function.
@@ -54,7 +54,7 @@ inline uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj);
  * ***********************************************************************************************/
 volatile uint16_t fault_object_list_pointer = 0;
 
-/*@@CheckFaultCondition
+/*!CheckFaultCondition
  * ***********************************************************************************************
  * Parameters:
  *      FAULT_OBJECT_t* fltobj: Pointer to fault object fltobj of type FAULT_OBJECT_t, holding
@@ -66,7 +66,7 @@ volatile uint16_t fault_object_list_pointer = 0;
  *      0: Failure
  *      1: Success
  * 
- * Description:
+ * <b>Description:</b>
  * The fault_object_list_pointer variable is used by the exec_FaultCheckSequential() and 
  * exec_FaultCheckAll() functions. In this function the given fault object fltobj of type
  * FAULT_OBJECT_t is checked for violations of its fault condition criteria. When a fault
@@ -77,7 +77,7 @@ volatile uint16_t fault_object_list_pointer = 0;
  * The fltstat bit indicates a persistent fault condition, which then results in the global
  * application notify, warning or critical flag bit to be set/cleared.
  * ***********************************************************************************************/
-inline uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj)
+inline volatile uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj)
 {
     volatile uint16_t compare_value = 0;
     
@@ -152,7 +152,7 @@ inline uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj)
 
 }
     
-/*@@SetFaultCondition
+/*!SetFaultCondition
  * ***********************************************************************************************
  * Parameters:
  *      FAULT_OBJECT_t* fltobj: Pointer to fault object fltobj of type FAULT_OBJECT_t, holding
@@ -169,7 +169,7 @@ inline uint16_t CheckFaultCondition(volatile FAULT_OBJECT_t* fltobj)
  * fault or fault reset condition leads to a set/clear of the fltstat flag bit after passing
  * through the specified counter filter.
  * ***********************************************************************************************/
-inline uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj)
+inline volatile uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj)
 {
     volatile uint16_t fres = 1;
     
@@ -227,7 +227,7 @@ inline uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj)
     return(fres);
 }
 
-/*@@CheckCPUResetRootCause
+/*!CheckCPUResetRootCause
  * ***********************************************************************************************
  * Parameters: (none)
  *      
@@ -280,7 +280,7 @@ inline uint16_t CheckCPUResetRootCause(void)
     return(fres);
 }
 
-/*@@ExecFaultHandler
+/*!ExecFaultHandler
  * ***********************************************************************************************
  * Parameters: 
  *      FAULT_OBJECT_t* fltobj: Pointer to fault object fltobj of type FAULT_OBJECT_t, holding
@@ -315,7 +315,7 @@ inline uint16_t CheckCPUResetRootCause(void)
  *          * a user defined function will be called (of form uint16_t xxxx(void) only)
  * 
  * ***********************************************************************************************/
-inline uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj)
+inline volatile uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj)
 {
     volatile uint16_t fres = 0, log_id = 0;
     
@@ -368,7 +368,7 @@ inline uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj)
 }
 
 
-/*@@ExecGlobalFaultFlagRelease
+/*!ExecGlobalFaultFlagRelease
  * ***********************************************************************************************
  * Parameters: 
  *      FAULT_OBJECT_t* fltobj: Pointer to fault object fltobj of type FAULT_OBJECT_t, holding
@@ -401,7 +401,7 @@ inline uint16_t ExecFaultHandler(volatile FAULT_OBJECT_t* fltobj)
  *          * a user defined function will be called (of form uint16_t xxxx(void) only)
  * 
  * ***********************************************************************************************/
-inline uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code)
+inline volatile uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code)
 {
     volatile uint16_t fres = 1;
     
@@ -432,7 +432,7 @@ inline uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code)
     return(fres);
 }
 
-/*@@ExecFaultFlagReleaseHandler
+/*!ExecFaultFlagReleaseHandler
  * ***********************************************************************************************
  * Parameters: 
  *      FAULT_OBJECT_t* fltobj: Pointer to fault object fltobj of type FAULT_OBJECT_t, holding
@@ -452,7 +452,7 @@ inline uint16_t ExecGlobalFaultFlagRelease(volatile uint16_t fault_class_code)
  *          * a user defined function will be called (of form uint16_t xxxx(void) only)
  * 
  * ***********************************************************************************************/
-inline uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj)
+inline volatile uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj)
 {
     volatile uint16_t fres = 1;
     
@@ -469,7 +469,7 @@ inline uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fltobj)
     return(fres);
 }
 
-/*@@exec_FaultCheckAll
+/*!exec_FaultCheckAll
  * ***********************************************************************************************
  * Parameters: 
  *      (none)
@@ -528,7 +528,7 @@ uint16_t exec_FaultCheckAll(void)
 
 }
 
-/*@@exec_FaultCheckSequential
+/*!exec_FaultCheckSequential
  * ***********************************************************************************************
  * Parameters: 
  *      (none)

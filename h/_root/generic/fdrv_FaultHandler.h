@@ -1,4 +1,4 @@
-/* @@task_FaultHandler.c
+/*!task_FaultHandler.c
  * ****************************************************************************
  * File:   task_FaultHandler.c
  * Author: M91406
@@ -21,7 +21,7 @@
 #include "_root/config/globals.h"
 
 
-/*@@FAULT_OBJECT_STATUS_t
+/*!FAULT_OBJECT_STATUS_t
  * ***********************************************************************************************
  * Description:
  * FAULT_OBJECT_STATUS_t specifies flags determining the system level on which a fault occurred.
@@ -69,7 +69,7 @@ typedef union
 	volatile FAULT_OBJECT_STATUS_BIT_FIELD_t flags;
 }FAULT_OBJECT_STATUS_t;
 
-/*@@FAULT_OBJECT_CLASS_t
+/*!FAULT_OBJECT_CLASS_t
  * ***********************************************************************************************
  * Description:
  * FAULT_OBJECT_CLASS_t specifies flags determining the fault class level (importance) of a 
@@ -148,7 +148,7 @@ typedef union
 	volatile FAULT_OBJECT_CLASS_BIT_FIELD_t flags; // data structure for single bit addressing operations
 }FAULT_OBJECT_CLASS_t;
 
-/*@@FAULT_CONDITION_SETTINGS_t
+/*!FAULT_CONDITION_SETTINGS_t
  * ***********************************************************************************************
  * Description:
  * FLTOBJ_FAULT_CONDITION_SETTINGS_t holds set point values of fault trip and fault release 
@@ -178,7 +178,7 @@ typedef struct
 }__attribute__((packed))FAULT_CONDITION_SETTINGS_t;
 
 
-/*@@FAULT_OBJECT_t
+/*!FAULT_OBJECT_t
  * ***********************************************************************************************
  * Description:
  * This generic fault object FAULT_OBJECT_t provides a 16-bit address pointer to a variable 
@@ -200,7 +200,7 @@ typedef struct
     volatile uint16_t (*user_fault_reset)(void); // pointer to a user function called when a defined fault condition is detected
 }__attribute__((packed))FAULT_OBJECT_t;
 
-/*@@fault_object_list[]
+/*!fault_object_list[]
  * ***********************************************************************************************
  * Description:
  * The fault_object_list[] array is a list of all fault objects defined for this project. It
@@ -212,7 +212,7 @@ extern FAULT_OBJECT_t *fault_object_list[];
 extern uint16_t fltobj_list_size;
 
 
-/*@@CPU Reset Classes
+/*!CPU Reset Classes
  * ***********************************************************************************************
  * Description:
  * CPU Reset Classes CPU_RESET_CLASS_xxx provides a set of bit filter masks for the 
@@ -237,7 +237,7 @@ extern uint16_t fltobj_list_size;
 #define FLT_CPU_RESET_CLASS_NORMAL     0b0000000000001111
 
 
-/*@@Fault Handler Prototypes
+/*!Fault Handler Prototypes
  * ***********************************************************************************************
  * Description:
  * The following function prototypes are publicly accessible.

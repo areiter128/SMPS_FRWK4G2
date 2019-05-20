@@ -132,6 +132,12 @@ typedef struct
     volatile unsigned APLL      :1; // Bit #13: Auxiliary PLL Loss of Lock Soft Trap Status bit
     volatile unsigned SGHT      :1; // Bit #14: Software Generated Hard Trap Status bit
     volatile unsigned DMACERR   :1; // Bit #15: DMA Trap Status bit
+
+    volatile unsigned ECCDBE    :1; // Bit #16: ECC Double-Bit Error Trap Status bit
+    volatile unsigned CAN       :1; // Bit #17: CAN Address Error Soft Trap Status bit
+    volatile unsigned CAN2      :1; // Bit #18: CAN2 Address Error Soft Trap Status bit
+    volatile unsigned           :13; // Bit <19:31> (reserved)
+
 }__attribute__((packed))TRAP_FLAG_IDENTIFIER_t;
 
 typedef struct
@@ -139,18 +145,18 @@ typedef struct
 	volatile unsigned VECNUM:8;	// Bit #0-7:  Pending Interrupt Number List
 	volatile unsigned ILR	:4;	// Bit #8-11: New Interrupt Priority Level
 	volatile unsigned		:1;	// Bit #12: Reserved
-	volatile unsigned		:1;	// Bit #13: Reserved
+	volatile unsigned VHOLD :1; // Bit #13: Vector Number Capture Enable bit
 	volatile unsigned       :1;	// Bit #14: Reserved
 	volatile unsigned       :1;	// Bit #15: Reserved
 }__attribute__((packed))INTERRUPT_CONTROL_REGISTER_BIT_FIELD_t;
 
 typedef union 
 {
-	volatile uint16_t reg_block;
+	volatile uint32_t reg_block;
 	volatile INTERRUPT_CONTROL_REGISTER_BIT_FIELD_t flags;
 }INTERRUPT_CONTROL_REGISTER_t;
 
-
+// Data structure for RCON status capturing
 typedef struct
 {
 	volatile unsigned por	:1;	// Bit #0:  Power-on Reset Flag bit
@@ -169,12 +175,14 @@ typedef struct
 	volatile unsigned		:1;	// Bit #13: Reserved
 	volatile unsigned iopuwr:1;	// Bit #14: Illegal Opcode or Uninitialized W Access Reset Flag bit
 	volatile unsigned trapr :1;	// Bit #15: Trap Reset Flag bit
+    
 }__attribute__((packed))RESET_CONTROL_REGISTER_BIT_FIELD_t;
 
 typedef union 
 {
 	volatile uint16_t reg_block;
 	volatile RESET_CONTROL_REGISTER_BIT_FIELD_t flags;
+    
 }RESET_CONTROL_REGISTER_t;
 
 typedef struct
@@ -184,6 +192,7 @@ typedef struct
     volatile TRAP_FLAG_IDENTIFIER_t trap_flags;
 	volatile RESET_CONTROL_REGISTER_t rcon_reg;
     volatile INTERRUPT_CONTROL_REGISTER_t inttreg;
+    
 }TRAP_LOGGER_t;
 
 extern volatile TRAP_LOGGER_t __attribute__((__persistent__))traplog; // data structure used as buffer for trap monitoring

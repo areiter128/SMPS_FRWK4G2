@@ -36,7 +36,7 @@
 
 #include "mcal/mcal.h"
 
-/*@@System Oscillator Settings
+/*!System Oscillator Settings
  * ************************************************************************************************
  * Summary:
  * Predefined settings for standard oscillator configurations
@@ -54,7 +54,7 @@
 
 #define CPU_PERFORMANCE 	C_90MIPS	// Device speed selection (MIPS40, MIPS50, MIPS60, MIPS70)
 
-/*@@System Frequency Presets
+/*!System Frequency Presets
  * ************************************************************************************************
  * Summary:
  * Set of defines for default oscillator settings
@@ -150,7 +150,7 @@
 #endif
 
 
-/*@@System Oscillator Settings
+/*!System Oscillator Settings
  * ************************************************************************************************
  * Summary:
  * Predefined settings for standard oscillator configurations

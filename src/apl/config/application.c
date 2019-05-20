@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@ApplicationSettings.c
+/*!ApplicationSettings.c
  *****************************************************************************
  * File:   ApplicationSettings.c
  *
@@ -63,7 +63,7 @@ volatile APPLICATION_t application; // global APPLICATION object holding setting
 //Remove: volatile uint16_t initialize_main_loop(void);
 
 
-/* @@init_ApplicationSettings.c
+/*!init_ApplicationSettings.c
  *****************************************************************************
  * Summary:
  * User code initializing the APPLICATION_SETTINGS_t data structure

@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@task_FaultHandler.c
+/*!task_FaultHandler.c
  * ****************************************************************************
  * File:   task_FaultHandler.c
  * Author: M91406
@@ -38,7 +38,7 @@
 #include "apl/apl.h"
 #include "apl/tasks/task_FaultHandler.h"
 
-/*@@User-Defined Fault Objects
+/*!User-Defined Fault Objects
  * ***********************************************************************************************
  * Description:
  * The following prototype declarations represent user-defined fault objects. Every fault object
@@ -61,7 +61,7 @@ FAULT_OBJECT_t fltobj_TaskTimeQuotaViolation;
 FAULT_OBJECT_t fltobj_PowerSourceFailure;
 
 
-/*@@User-Defined Fault Objects Initialization
+/*!User-Defined Fault Objects Initialization
  * ***********************************************************************************************
  * Description:
  * The following prototype declarations represent user-defined initialization routines of each
@@ -76,7 +76,7 @@ inline uint16_t init_TaskTimeQuotaViolationFaultObject(void);
     // user defined fault objects
 inline uint16_t init_MyCustomFaultObject(void);
 
-/*@@fault_object_list[]
+/*!fault_object_list[]
  * ***********************************************************************************************
  * Description:
  * The fault_object_list[] array is a list of all fault objects defined for this project. It
@@ -97,7 +97,7 @@ FAULT_OBJECT_t *fault_object_list[] = {
 };
 uint16_t fltobj_list_size = (sizeof(fault_object_list)/sizeof(fault_object_list[0]));
 
-/*@@init_FaultObjects
+/*!init_FaultObjects
  * ***********************************************************************************************
  * Description:
  * The fault_object_list[] array is a list of all fault objects defined for this project. It
@@ -125,7 +125,7 @@ volatile uint16_t init_FaultObjects(void)
     
 }
 
-/*@@init_CPULoadOverrunFaultObject
+/*!init_CPULoadOverrunFaultObject
  * ***********************************************************************************************
  * Description:
  * The fltobj_CPULoadOverrun is initialized here. This fault detects conditions where the CPU
@@ -175,7 +175,7 @@ inline uint16_t init_CPULoadOverrunFaultObject(void)
     
 }
 
-/*@@init_TaskExecutionFaultObject
+/*!init_TaskExecutionFaultObject
  * ***********************************************************************************************
  * Description:
  * The fltobj_TaskExecutionFailure is initialized here. This fault detects conditions where a 
@@ -223,7 +223,7 @@ inline uint16_t init_TaskExecutionFaultObject(void)
     
 }
 
-/*@@init_TaskTimeQuotaViolationFaultObject
+/*!init_TaskTimeQuotaViolationFaultObject
  * ***********************************************************************************************
  * Description:
  * The fltobj_TaskTimeQuotaViolation is initialized here. This fault detects conditions where a 
@@ -271,7 +271,7 @@ inline uint16_t init_TaskTimeQuotaViolationFaultObject(void)
 }
 
 
-/*@@init_PowerSourceFaultObject
+/*!init_PowerSourceFaultObject
  * ***********************************************************************************************
  * Description:
  * The fltobj_PowerSourceFailure is initialized here. This fault object captures the condition 

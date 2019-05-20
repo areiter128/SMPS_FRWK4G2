@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@UserStartupCode.c
+/*!UserStartupCode.c
  *****************************************************************************
  * File:   UserStartupCode.c
  *
@@ -54,16 +54,23 @@
 #include "hal/hal.h"
 #include "mcal/mcal.h"
 
-uint16_t ExecuteUserStartupCode(void) {
-
+volatile uint16_t ExecuteUserStartupCode(void) {
 
     /* *********************************************************************************
-     * Place user code required for a proper system startup here
-     * Please make sure any polling functions are protected.
-     * The following example turns on an auxiliary power supply and 
-     * waits until the POWER GOOD output is set
-     * *********************************************************************************
-
+     * When the task manager setting EXECUTE_USER_STARTUP_CODE is set to 1, this
+     * function will be called right after the device is coming out of RESET and
+     * the function DEVOCE_Reset has been executed.
+     * 
+     * PLEASE NOTE:
+     * ============
+     * This special feature of the task scheduler should only be used when critical,
+     * low-level procedures need to be performed when the system gets powered up.
+     * If no special action needs to be taken at startup, it's recommended to 
+     * disable this feature by setting (EXECUTE_USER_STARTUP_CODE = 0). 
+     * 
+     * All conventional startup code should be incorporated into the task scheduler 
+     * task queues.
+     * *********************************************************************************/
     
     return(1);
 }

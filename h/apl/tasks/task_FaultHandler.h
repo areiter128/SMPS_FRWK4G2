@@ -1,4 +1,4 @@
-/* @@task_FaultHandler.c
+/*!task_FaultHandler.c
  * ****************************************************************************
  * File:   task_FaultHandler.c
  * Author: M91406
@@ -22,7 +22,7 @@
 #include "../h/_root/config/globals.h"
 
 
-/*@@fault_object_index
+/*!fault_object_index
  * ***********************************************************************************************
  * Description:
  * The enumeration fault_object_index provides a list of friendly labels to access user-defined

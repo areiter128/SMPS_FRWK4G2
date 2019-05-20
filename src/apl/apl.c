@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@apl.c
+/*!apl.c
  * ****************************************************************************
  * File:   apl.c
  * Author: M91406
@@ -34,10 +34,10 @@
 
 #include "apl/tasks/task_FaultHandler.h"
 
-/*@@SYSTEM_Initialize()
+/*!CLOCK_Initialize()
  * ************************************************************************************************
  * Summary:
- * Initializes the essential peripheral blocks to boot the task scheduler
+ * Initializes the oscillator and task scheduler timer
  * 
  * Parameters:
  * (none)
@@ -47,30 +47,27 @@
  * 1 = TRUE
  * 
  * Description:
- * Initializes the essential peripheral blocks like GPIO ports, oscillator and the PLL module,
- * basic timers, etc.
+ * Initializes the main oscillator, the auxiliary oscillator and task scheduler timer peripheral.
  * All other, application specific peripheral configurations are executed within the scheduler 
- * where they can be monitored and faults can be detected and handled. 
+ * where they can be monitored and faults can be detected and handled directly.
  * 
  * Please Note:
  * In case users would like to use MCC to generate code for device peripheral configurations, 
- * the function call SYSTEM_initialize() will directly call the MCC generated code modules instead
+ * the function call CLOCK_Initialize() will directly call the MCC generated code modules instead
  * of the peripheral libraries used in this example.
  * 
  * ***********************************************************************************************/
 
-uint16_t SYSTEM_Initialize(void){
-
-    /* this routine can be used to replace the operation mode OP_MODE_BOOT */
+uint16_t CLOCK_Initialize(void){
 
     volatile uint16_t fres = 0;
     
-    // Initialize Master core clock for 90 MIPS (max speed on dsPIC33CHxxxMPxxx)
+    // Initialize main oscillator and auxiliary clock
     //Remove: fres = init_SoftwareWatchDogTimer();
     fres &= init_oscillator();
     fres &= init_aux_oscillator();
    
-    // Setup Timer1 as base clock for the task scheduler
+    // Setup and start Timer1 as base clock for the task scheduler
     fres &= init_system_timer();               // Initialize timer @ 10 kHz
     fres &= launch_system_timer();             // Enable Timer without interrupts
 
@@ -78,7 +75,7 @@ uint16_t SYSTEM_Initialize(void){
     
 }
 
-/*@@OS_Initialize()
+/*!OS_Initialize()
  * ************************************************************************************************
  * Summary:
  * Initializes the task scheduler.
@@ -117,7 +114,7 @@ uint16_t OS_Initialize(void) {
 }
 
 
-/*@@APPLICATION_Initialize()
+/*!APPLICATION_Initialize()
  * ************************************************************************************************
  * Summary:
  * Initializes the application data structure.
@@ -153,7 +150,7 @@ uint16_t APPLICATION_Initialize(void) {
     
 }
 
-/*@@DEVICE_Reset()
+/*!DEVICE_Reset()
  * ************************************************************************************************
  * Summary:
  * Resets GPIOs and peripheral blocks to a defined default state
@@ -187,8 +184,8 @@ uint16_t Device_Reset(void){
     volatile uint16_t fres = 1;
     
     // Device reset
-    fres &= gpio_reset();               // Sets all pins as digital inputs, disabling all open-drain settings
-    fres &= pmd_reset(PMD_POWER_OFF);   // Turns off power and clocks to all peripheral modules
+    fres &= gpio_reset();               // Sets all device pins to DIGITAL INPUT, disabling all open-drain and pull-up/-down settings
+    fres &= pmd_reset(PMD_POWER_OFF);   // Turns off power and clocks to all peripheral modules offering a PMD control bit
     
     return(fres);
     

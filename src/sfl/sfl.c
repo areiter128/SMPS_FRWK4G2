@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@sfl.c
+/*!sfl.c
  * ***************************************************************************
  * File:   sfl.c
  * Author: M91406

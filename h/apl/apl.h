@@ -19,13 +19,13 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@apl.h
+/*!apl.h
  * ****************************************************************************
  * File:   apl.h
  * Author: M91406
  * Comments:
  * Revision history: 
- */
+ * ****************************************************************************/
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
@@ -46,21 +46,16 @@
 /* ***********************************************************************************************
  * GLOBAL APPLICATION LAYER USER OPTIONS
  * ***********************************************************************************************/
-#define EXECUTE_USER_STARTUP_CODE   1   // enables the execution of user startup code after SYSTEM_Reset
-                                        // (1 = function call enabled, 0 = Function call disabled)
+
 
 /* ***********************************************************************************************
  * PROTOTYPES
  * ***********************************************************************************************/
 
 extern inline uint16_t OS_Initialize(void);
-extern inline uint16_t SYSTEM_Initialize(void);
+extern inline uint16_t CLOCK_Initialize(void);
 extern inline uint16_t Device_Reset(void);
 extern inline uint16_t APPLICATION_Initialize(void);
-
-#if (EXECUTE_USER_STARTUP_CODE == 1)
-extern inline uint16_t ExecuteUserStartupCode(void);
-#endif
 
 #endif	/* APPLICATION_LAYER_H */
 

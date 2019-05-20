@@ -1,4 +1,4 @@
-/* @@config_bits_P33CH.c
+/*!config_bits_P33CH.c
  * ****************************************************************************
  * File:   config_bits_P33CH.c
  * Author: M91406
@@ -18,7 +18,7 @@
 #if defined (__dsPIC33CH512MP506__)
 
 // FS1ICD
-/* @@S1ISOLAT
+/*!S1ISOLAT
  * *****************************************************************************************************
  * Summary:
  * Config bit setting for slave core RUN command

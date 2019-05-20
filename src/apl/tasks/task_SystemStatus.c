@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@task_SystemStatus.c
+/*!task_SystemStatus.c
  * ****************************************************************************
  * File:   task_SystemStatus.c
  * Author: M91406
@@ -49,7 +49,7 @@
 volatile uint16_t css_GetSystemStatus(void);
 volatile uint16_t css_SetSystemMode(void);
 
-/*@@task_CaptureSystemStatus
+/*!task_CaptureSystemStatus
  * ************************************************************************************************
  * Summary:
  * Enables the bias power to the high resolution PWM module

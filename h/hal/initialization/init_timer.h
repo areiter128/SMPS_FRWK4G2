@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@init_timer.h
+/*!init_timer.h
  * *************************************************************************** 
  * File:   init_timer.h
  * Author: M91406

@@ -18,7 +18,7 @@ volatile uint16_t task_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
 volatile uint16_t cpu_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
 #endif
 
-/*@@exec_scheduler
+/*!exec_scheduler
  * ************************************************************************************************
  * Summary:
  * Main scheduler function
@@ -44,7 +44,9 @@ inline volatile uint16_t exec_scheduler(void) {
     fres = CheckCPUResetRootCause();
 
     // Initialize essential chip features and peripheral modules to boot up system
+    #if (EXECUTE_MCC_SYSTEM_INITIALIZE == 0)
     fres &= Device_Reset();
+    #endif
 
     // The User Startup Code might be required in some designs to enable 
     #if (EXECUTE_USER_STARTUP_CODE == 1)
@@ -52,7 +54,9 @@ inline volatile uint16_t exec_scheduler(void) {
     #endif
     
     // Initialize essential chip features and peripheral modules to boot up system
-    fres &= SYSTEM_Initialize();
+    #if (EXECUTE_MCC_SYSTEM_INITIALIZE == 0)
+    fres &= CLOCK_Initialize();
+    #endif
 
     // Initialize software layers (scheduler and essential user tasks)
     fres &= OS_Initialize();

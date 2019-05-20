@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@init_dsp.h
+/*!init_dsp.h
  * *************************************************************************** 
  * File:   init_dsp.h
  * Author: c14029

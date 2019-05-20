@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/*@@task_DebugLED.h
+/*!task_DebugLED.h
  * ***************************************************************************
  * File:   task_DebugLED.h
  * Author: John Haroian - C14029

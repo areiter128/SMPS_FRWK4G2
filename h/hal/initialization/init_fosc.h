@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@init_fosc.h
+/*!init_fosc.h
  * *************************************************************************** 
  * File:   init_fosc.h
  * Author: M91406

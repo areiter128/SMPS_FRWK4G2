@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@task_manager.c
+/*!task_manager.c
  *****************************************************************************
  * File:   task_manager.c
  *
@@ -236,7 +236,7 @@ uint16_t task_CheckOperationModeStatus(void) {
     }
     else // if operating mode has not changed, reset task queue change flag bit
     {
-        task_mgr.status.flags.queue_switch = 0; // reset queue switch flag for one queue execution loop
+        task_mgr.status.flags.queue_switch = false; // reset queue switch flag for one queue execution loop
     }
 
     return (1);

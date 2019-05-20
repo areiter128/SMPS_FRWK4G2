@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@mcal.c
+/*!mcal.c
  * ***************************************************************************
  * File:   mcal.c
  * Author: M91406

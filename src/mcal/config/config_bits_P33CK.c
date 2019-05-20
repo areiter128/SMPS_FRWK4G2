@@ -1,4 +1,4 @@
-/* @@config_bits_P33CK.c
+/*!config_bits_P33CK.c
  * ****************************************************************************
  * File:   config_bits_P33CK.c
  * Author: M91406

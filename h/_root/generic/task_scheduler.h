@@ -43,7 +43,7 @@ extern "C" {
 #endif /* __cplusplus */
     
 
-/*@@run_main_loop
+/*!run_main_loop
  * ***********************************************************************************************
  * Description:
  * [run_main_loop] is a global flag, which enables a CPU reset from any part of the firmware.
@@ -62,7 +62,7 @@ extern "C" {
 extern volatile uint16_t run_scheduler;
 
 
-/*@@CPU_LOAD_DEBUG_BUFFER_LENGTH
+/*!CPU_LOAD_DEBUG_BUFFER_LENGTH
  * ***********************************************************************************************
  * Description:
  * CPU load and task execution time monitoring can be enabled internally during debug mode

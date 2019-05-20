@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@init_gpio.h
+/*!init_gpio.h
  * *************************************************************************** 
  * File:   init_gpio.h
  * Author: M91406

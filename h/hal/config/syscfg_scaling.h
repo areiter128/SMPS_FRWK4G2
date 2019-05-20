@@ -125,7 +125,7 @@
 #endif
 
 
-/*@@System Configuration Scaling
+/*!System Configuration Scaling
  * ************************************************************************************************
  * Summary:
  * Set of defines and marcos for easy hardware migration/changes

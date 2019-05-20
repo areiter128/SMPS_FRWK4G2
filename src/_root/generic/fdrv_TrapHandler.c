@@ -227,6 +227,9 @@ void __attribute__((interrupt, no_auto_psv)) _SoftTrapError(void) {
     Nop();
 #endif
     
+    traplog.trap_flags.CAN = INTCON3bits.CAN; // Capture flag bit
+    INTCON3bits.CAN = 0; // Clear the trap flag
+    
     traplog.trap_flags.NAE = INTCON3bits.NAE; // Capture flag bit
     INTCON3bits.NAE = 0; // Clear the trap flag
     traplog.trap_flags.DOOVR = INTCON3bits.DOOVR; // Capture flag bit

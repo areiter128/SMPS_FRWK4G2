@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@hal.h
+/*!hal.h
  * *************************************************************************** 
  * File:   hal.h
  * Author: M91406

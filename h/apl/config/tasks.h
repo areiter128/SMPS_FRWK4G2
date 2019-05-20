@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/*@@tasks.h
+/*!tasks.h
  *****************************************************************************
  * File:   tasks.h
  *
@@ -72,7 +72,7 @@
 
 /* Prototypes of additional initialization task functions */
 
-/*@@Task Table
+/*!Task Table
  * *****************************************************************************************************
  * Task Table lists all tasks which will be called by the task manager
  * *****************************************************************************************************
@@ -83,7 +83,7 @@
 
 extern volatile uint16_t(*Task_Table[])(void);
 
-/*@@task_id_no_e
+/*!task_id_no_e
  * *****************************************************************************************************
  * The task_id_no_e enum is for easy addressing task-items from Task_Table using readable 
  * defines instead of indices. 
@@ -117,7 +117,7 @@ typedef enum {
 
 } task_id_no_e;
 
-/*@@Task Queues
+/*!Task Queues
  *  *****************************************************************************************************
  * Task Queues 
  * *****************************************************************************************************

@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@apl.c
+/*!apl.c
  * ****************************************************************************
  * File:   init_fosc.c
  * Author: M91406
@@ -32,7 +32,7 @@
 #include "mcal/config/devcfg_oscillator.h"
 
 
-/*@@init_oscillator()
+/*!init_oscillator()
  * ************************************************************************************************
  * Summary:
  * Initializes the CPU oscillator system
@@ -61,7 +61,7 @@ volatile uint16_t init_oscillator(void) {
     return(fres);
 }
 
-/*@@init_aux_oscillator()
+/*!init_aux_oscillator()
  * ************************************************************************************************
  * Summary:
  * Initializes the auxiliary oscillator system

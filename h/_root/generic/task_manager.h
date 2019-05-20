@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@task_manager.h
+/*!task_manager.h
  *****************************************************************************
  * File:   task_manager.h
  *

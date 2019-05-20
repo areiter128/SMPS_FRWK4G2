@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/*@@task_LED_Green.h
+/*!task_LED_Green.h
  * ***************************************************************************
  * File:   task_LED_Green.h
  * Author: M91406

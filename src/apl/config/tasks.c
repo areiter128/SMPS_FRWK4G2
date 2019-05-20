@@ -19,7 +19,7 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  * ***************************************************************************/
-/* @@tasks.c
+/*!tasks.c
  *****************************************************************************
  * File:   tasks.c
  *
@@ -54,7 +54,7 @@
   
 #include "apl/config/tasks.h"
 
-/*@@Task Table
+/*!Task Table
  *  *****************************************************************************************************
  * Task Table lists all tasks which will be called by the task manager
  * *****************************************************************************************************
@@ -92,7 +92,7 @@ volatile uint16_t (*Task_Table[])(void) = {
 };
 
 
-/*@@Task Queues
+/*!Task Queues
  *  *****************************************************************************************************
  * Task Queues 
  * *****************************************************************************************************
@@ -101,7 +101,7 @@ volatile uint16_t (*Task_Table[])(void) = {
  * multiple times while less critical ones might only be called once.
  * *****************************************************************************************************/
 
-/* @@task_queue_boot
+/*!task_queue_boot
  * ***********************************************************************************************
  *   In OP_MODE_BOOT this is the first task queue which is loaded right after the task manager 
  *   has been started. 
@@ -124,7 +124,7 @@ volatile uint16_t task_queue_boot[] = {
 };
 volatile uint16_t task_queue_boot_size = (sizeof(task_queue_boot)/sizeof(task_queue_boot[0]));
 
-/* @@task_queue_device_startup
+/*!task_queue_device_startup
  * ***********************************************************************************************
  *   In OP_MODE_DEVICE_STARTUP this task queue covers all peripheral configurations. 
  *   During the execution of this task sequence the peripheral initialization may set up modules 
@@ -148,7 +148,7 @@ volatile uint16_t task_queue_device_startup[] = {
 };
 volatile uint16_t task_queue_device_startup_size = (sizeof(task_queue_device_startup)/sizeof(task_queue_device_startup[0]));
 
-/* @@task_queue_system_startup
+/*!task_queue_system_startup
  * ***********************************************************************************************
  *   In OP_MODE_SYSTEM_STARTUP task queue system startup is executed.
  *   Once variable/data structure default values have been loaded and peripherals have been 
@@ -172,7 +172,7 @@ volatile uint16_t task_queue_system_startup[] = {
 };
 volatile uint16_t task_queue_system_startup_size = (sizeof(task_queue_system_startup)/sizeof(task_queue_system_startup[0]));
 
-/* @@task_queue_idle
+/*!task_queue_idle
  * ***********************************************************************************************
  *   In OP_MODE_IDLE task queue idle is executed until a new operating mode is selected and a 
  *   new/different task queue is loaded.
@@ -195,7 +195,7 @@ volatile uint16_t task_queue_init_idle(void)
     return(1);
 }
 
-/* @@Operating Mode Templates
+/*!Operating Mode Templates
  * ***********************************************************************************************
  *
  * - OP_MODE_NORMAL:
@@ -226,7 +226,7 @@ volatile uint16_t task_queue_normal[] = {
 volatile uint16_t task_queue_normal_size = (sizeof(task_queue_normal)/sizeof(task_queue_normal[0]));
 */
 
-/* @@task_queue_normal
+/*!task_queue_normal
  * ***********************************************************************************************
  *   In OP_MODE_NORMAL task queue normal is executed until a new operating mode is selected and a 
  *   new/different task queue is loaded.
@@ -247,7 +247,7 @@ volatile uint16_t task_queue_init_normal(void)
     return(1);
 }
 
-/* @@task_queue_fault
+/*!task_queue_fault
  * ***********************************************************************************************
  *   In OP_MODE_FAULT task queue fault is executed until a new operating mode is selected and a 
  *   new/different task queue is loaded.
@@ -270,7 +270,7 @@ volatile uint16_t task_queue_init_fault(void)
     return(1);
 }
 
-/* @@task_queue_standby
+/*!task_queue_standby
  * ***********************************************************************************************
  *   In OP_MODE_STANDBY task queue fault is executed until a new operating mode is selected and a 
  *   new/different task queue is loaded.
