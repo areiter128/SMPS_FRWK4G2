@@ -138,7 +138,7 @@
  *****************************************************************************/
 
 
-#define EXECUTE_USER_STARTUP_CODE   1   // enables the execution of user startup code after SYSTEM_Reset
+#define EXECUTE_USER_STARTUP_CODE   0   // enables the execution of user startup code after SYSTEM_Reset
                                         // (1 = function call enabled, 0 = Function call disabled)
 
 #if (EXECUTE_USER_STARTUP_CODE == 1)
@@ -169,7 +169,7 @@
  * See also:
  * CLKOUT_WR
  * ***********************************************************************************************/
-#define USE_TASK_EXECUTION_CLOCKOUT_PIN     1   // Enable/Disable Task Scheduler Clock Output
+#define USE_TASK_EXECUTION_CLOCKOUT_PIN     0   // Enable/Disable Task Scheduler Clock Output
 
 #if (USE_TASK_EXECUTION_CLOCKOUT_PIN == 1)
     #define TS_CLOCKOUT_PIN_WR              DBGPIN_WR   // Specify Clock Output Pin port latch register
@@ -195,7 +195,7 @@
  * ***********************************************************************************************/
 
 #if __DEBUG
-#define USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS 1
+#define USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS 2
 #else
 #define USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS 0
 #endif
@@ -221,6 +221,7 @@
  * ***********************************************************************************************/
 
 #define TASK_MGR_TIME_STEP                  (float)(100.0e-6)     // Schedule time step in [sec]
+    
 #define TASK_MGR_PERIOD                     (uint16_t)((float)FCY * (float)TASK_MGR_TIME_STEP)
 
 #define TASK_MGR_TIMER_INDEX                1       // Index of the timer peripheral used
