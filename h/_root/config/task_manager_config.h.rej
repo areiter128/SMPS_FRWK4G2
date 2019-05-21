@@ -1,0 +1,9 @@
+diff a/h/_root/config/task_manager_config.h b/h/_root/config/task_manager_config.h	(rejected hunks)
+@@ -221,6 +221,7 @@
+  * ***********************************************************************************************/
+ 
+ #define TASK_MGR_TIME_STEP                  (float)(100.0e-6)     // Schedule time step in [sec]
++    
+ #define TASK_MGR_PERIOD                     (uint16_t)((float)FCY * (float)TASK_MGR_TIME_STEP)
+ 
+ #define TASK_MGR_TIMER_INDEX                1       // Index of the timer peripheral used
