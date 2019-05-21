@@ -13,7 +13,10 @@
  * ***********************************************************************************************/
 volatile uint16_t run_scheduler = 1;     // Flag used to reset the main loop, forcing a warm reset when set != 1
 
-#if __DEBUG
+// This feature was previously restricted to debug sessions using the macro __DEBUG
+// now it has been made available by user configuration to allow data collection and transmission 
+// via common communication ports
+#if (USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS == 1) 
 volatile uint16_t task_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
 volatile uint16_t cpu_time_buffer[CPU_LOAD_DEBUG_BUFFER_LENGTH];
 #endif

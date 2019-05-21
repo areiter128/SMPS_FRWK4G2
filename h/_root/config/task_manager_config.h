@@ -138,7 +138,7 @@
  *****************************************************************************/
 
 
-#define EXECUTE_USER_STARTUP_CODE   1   // enables the execution of user startup code after SYSTEM_Reset
+#define EXECUTE_USER_STARTUP_CODE   0   // enables the execution of user startup code after SYSTEM_Reset
                                         // (1 = function call enabled, 0 = Function call disabled)
 
 #if (EXECUTE_USER_STARTUP_CODE == 1)
@@ -172,9 +172,9 @@
 #define USE_TASK_EXECUTION_CLOCKOUT_PIN     1   // Enable/Disable Task Scheduler Clock Output
 
 #if (USE_TASK_EXECUTION_CLOCKOUT_PIN == 1)
+    #define USE_DETAILED_CLOCKOUT_PATTERN   1           // Enable/Disable detailed clock pattern
     #define TS_CLOCKOUT_PIN_WR              DBGPIN_WR   // Specify Clock Output Pin port latch register
     #define TS_CLOCKOUT_PIN_INIT_OUTPUT     DBGPIN_INIT_OUTPUT   // Specify Clock Output Pin configuration
-    #define USE_DETAILED_CLOCKOUT_PATTERN   1           // Enable/Disable detailed clock pattern
 #endif
 
 /*!USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS
@@ -200,6 +200,32 @@
 #define USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS 0
 #endif
 
+
+/*!CPU_LOAD_DEBUG_BUFFER_LENGTH
+ * ***********************************************************************************************
+ * Description:
+ * CPU load and task execution time monitoring can be enabled internally during debug mode
+ * by setting this option =1.
+ * 
+ * When enabled, two data arrays are used to log most recent CPU meter and task execution time
+ * meter results. This function collects data continuously by filling the arrays from index 0
+ * to n, rolls over and continues to add data from index 0. A software breakpoint needs to be 
+ * placed to stop code execution and inspect the collected data arrays.
+ * 
+ * CPU_LOAD_DEBUG_BUFFER_LENGTH determines the length of the data arrays.
+ * 
+ * See also:
+ * CPU_LOAD_DEBUG_BUFFER_LENGTH
+ * ***********************************************************************************************/
+
+// in debugging mode two generic arrays are available for CPU load and task execution time
+// measurements
+#if (USE_TASK_MANAGER_TIMING_DEBUG_ARRAYS == 1)
+#define CPU_LOAD_DEBUG_BUFFER_LENGTH     128
+extern volatile uint16_t task_time_buffer[];
+extern volatile uint16_t cpu_time_buffer[];
+#endif
+    
 /*!Task Manager Heartbeat Configuration
  * ***********************************************************************************************
  * Description:
