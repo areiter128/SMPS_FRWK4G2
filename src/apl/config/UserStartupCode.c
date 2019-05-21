@@ -56,7 +56,8 @@
 
 volatile uint16_t ExecuteUserStartupCode(void) {
 
-    /* *********************************************************************************
+    /*!ExecuteUserStartupCode() 
+     * *********************************************************************************
      * When the task manager setting EXECUTE_USER_STARTUP_CODE is set to 1, this
      * function will be called right after the device is coming out of RESET and
      * the function DEVOCE_Reset has been executed.
