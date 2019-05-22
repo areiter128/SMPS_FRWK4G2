@@ -1,10 +1,10 @@
 /* ***********************************************************************************************
- * File:        10889_P33CH_R10_pinmap.h                                                             
+ * File:        MA330045_P33CH_R10_pinmap.h                                                             
  * Author:      M91406                                                                         
  * Comments:    Hardware abstraction layer device pinout descriptor                                
- * Board ID:    10889_P33CH                                                                       
- * Date:        05/17/2019                                                                             
- * Build:       0031                                                                       
+ * Board ID:    MA330045_P33CH                                                                       
+ * Date:        05/22/2019                                                                             
+ * Build:       0033                                                                       
  *                                                                                                 
  * Description:                                                                                    
  * This is a header file template adding signal labels for the hardware abstraction layer          
@@ -56,8 +56,8 @@
  * ***********************************************************************************************/    
 // This is a guard condition so that contents of this file are not included
 // more than once.
-#ifndef __10889_P33CH_R10_PINMAP_H__
-#define __10889_P33CH_R10_PINMAP_H__
+#ifndef __MA330045_P33CH_R10_PINMAP_H__
+#define __MA330045_P33CH_R10_PINMAP_H__
 
 #include <xc.h> // include processor files - each processor file is guarded 
 #include <stdint.h> // Include standard integer types                       
@@ -1374,4 +1374,4 @@
 #endif
 
 
-#endif	/* __10889_P33CH_R10_PINMAP_H__ */
+#endif	/* __MA330045_P33CH_R10_PINMAP_H__ */

@@ -168,7 +168,7 @@
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="10889_P33CH_R10" type="2">
+    <conf name="MA330045_P33CH_R10" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>dsPIC33CH512MP506</targetDevice>
@@ -345,7 +345,7 @@
         <property key="legacy-libc" value="true"/>
         <property key="mpreserve-all" value="false"/>
         <property key="oXC16glb-macros"
-                  value="__10889_P33CH_R10__;__CODE_OPT_LEVEL_3__"/>
+                  value="__MA330045_P33CH_R10__;__CODE_OPT_LEVEL_3__"/>
         <property key="output-file-format" value="elf"/>
         <property key="preserve-all" value="false"/>
         <property key="preserve-file" value=""/>
@@ -1018,7 +1018,7 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
     </conf>
-    <conf name="10888_P33CK_R30" type="2">
+    <conf name="MA330048_P33CK_R30" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>dsPIC33CK256MP506</targetDevice>
@@ -1195,7 +1195,7 @@
         <property key="legacy-libc" value="true"/>
         <property key="mpreserve-all" value="false"/>
         <property key="oXC16glb-macros"
-                  value="__10888_P33CK_R30__;__CODE_OPT_LEVEL_3__"/>
+                  value="__MA330048_P33CK_R30__;__CODE_OPT_LEVEL_3__"/>
         <property key="output-file-format" value="elf"/>
         <property key="preserve-all" value="false"/>
         <property key="preserve-file" value=""/>
