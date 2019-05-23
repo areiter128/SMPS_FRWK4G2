@@ -1568,8 +1568,4 @@
 // Device Pin #57 is VDD
 
 
-
-#endif
-
-
 #endif	/* __MA33048_P33CK_R30_PINMAP_H__ */
