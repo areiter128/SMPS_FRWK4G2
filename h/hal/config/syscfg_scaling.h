@@ -34,7 +34,7 @@
 #include <dsp.h>
 #include <math.h>
 
-#ifdef __10888_P33CK_R30__
+#ifdef __MA330048_P33CK_R30__
 
     // DSC bias voltage
     #define DEVICE_VDD                  3.300       // Device bias voltage in [V]
@@ -79,7 +79,7 @@
 
 #endif
 
-#ifdef __10889_P33CH_R10__
+#ifdef __MA330045_P33CH_R10__
 
     // DSC bias voltage
     #define DEVICE_VDD                  3.300       // Device bias voltage in [V]

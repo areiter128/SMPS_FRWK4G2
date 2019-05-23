@@ -13,8 +13,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef _APPLLICAITON_LAYER_FAULT_HANDLER_H_
-#define	_APPLLICAITON_LAYER_FAULT_HANDLER_H_
+#ifndef _ROOT_LAYER_FAULT_HANDLER_H_
+#define	_ROOT_LAYER_FAULT_HANDLER_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
@@ -33,14 +33,18 @@
 
 typedef enum {
     
-    FLTCHK_DISABLED = 0b0000000000000000, // Fault Hander status OFF flag bit-mask
-    FLTCHK_ENABLED = 0b1000000000000000, // Fault Hander status ON flag bit-mask
 
-    FAULT_NONE = 0b0000000000000000, // Fault bit indicating NO FAULT 
-    FAULT_HW  = 0b0000000000000001, // Fault bit indicating a board level hardware failure 
-    FAULT_SW  = 0b0000000000000010, // Fault bit indicating a software failure
-    FAULT_SI  = 0b0000000000000100, // Fault bit indicating a silicon level hardware failure
-    FAULT_SYS = 0b0000000000001000  // Fault bit indicating a system-level/-parameter failure
+    FAULT_NONE      = 0b0000000000000000, // Fault bit indicating NO FAULT 
+    FAULT_HW        = 0b0000000000000001, // Bit 0: Fault bit indicating a board level hardware failure 
+    FAULT_SW        = 0b0000000000000010, // Bit 1: Fault bit indicating a software failure
+    FAULT_SI        = 0b0000000000000100, // Bit 2: Fault bit indicating a silicon level hardware failure
+    FAULT_SYS       = 0b0000000000001000, // Bit 3: Fault bit indicating a system-level/-parameter failure
+
+    FAULT_ACTIVE    = 0b0010000000000000, // Bit 13: Fault bit indicating a most recent condition violation
+    FAULT_STAT      = 0b0100000000000000, // Bit 14: Fault bit indicating a triggered fault condition (after passing filter)
+
+    FLTCHK_ENABLED  = 0b1000000000000000, // Bit 15: Fault Hander status ON flag bit-mask
+    FLTCHK_DISABLED = 0b0000000000000000, // Fault Hander status OFF flag bit-mask
 
 } __attribute__((packed))FAULT_OBJECT_STATUS_e;
 
@@ -139,12 +143,12 @@ typedef struct {
 	volatile unsigned :1;	// Bit #12: Reserved
 	volatile unsigned :1;	// Bit #13: Reserved
 	volatile unsigned :1;	// Bit #14: Reserved
-	volatile unsigned none         :1;  // Bit #15: flag bit indicating that no failure has occurred
+	volatile unsigned :1;   // Bit #15: Reserved
 }__attribute__((packed))FAULT_OBJECT_CLASS_BIT_FIELD_t;
 
 typedef union 
 {
-	volatile uint16_t class; // buffer for 16-bit word read/write operations
+	volatile FAULT_OBJECT_CLASS_e class; // buffer for 16-bit word read/write operations
 	volatile FAULT_OBJECT_CLASS_BIT_FIELD_t flags; // data structure for single bit addressing operations
 }FAULT_OBJECT_CLASS_t;
 
@@ -162,9 +166,9 @@ typedef union
 typedef enum
 {
     FAULT_LEVEL_GREATER_THAN = 0b0000000000000000, // Flag to perform "greater than" comparison
-    FAULT_LEVEL_LESS_THAN    = 0b1111111111111111, // Flag to perform "less than" comparison
-    FAULT_LEVEL_EQUAL        = 0b0000000011111111, // Flag to perform "is equal" comparison
-    FAULT_LEVEL_NOT_EQUAL    = 0b1111111100000000  // Flag to perform "is not equal than" comparison
+    FAULT_LEVEL_LESS_THAN    = 0b0000000000000001, // Flag to perform "less than" comparison
+    FAULT_LEVEL_EQUAL        = 0b0000000000000010, // Flag to perform "is equal" comparison
+    FAULT_LEVEL_NOT_EQUAL    = 0b0000000000000100  // Flag to perform "is not equal than" comparison
 }FAULT_OBJECT_CONDITION_LEVEL_e;
     
 typedef struct
@@ -193,12 +197,12 @@ typedef struct
     volatile FAULT_OBJECT_CLASS_t classes; // fault class bit field
     volatile FAULT_CONDITION_SETTINGS_t criteria; // Fault check settings of the  fault object
     volatile uint32_t error_code; // error code helping to identify source module, system level and importance
-    volatile uint16_t id; // identifier of this fault object
+    volatile uint16_t id; // global identifier of this fault object
     volatile uint16_t* object; // pointer to an object (e.g. variable or SFR) to be monitored
     volatile uint16_t object_bit_mask; // bit mask filter to monitor specific bits within OBJECT
     volatile uint16_t (*user_fault_action)(void); // pointer to a user function called when a defined fault condition is detected
     volatile uint16_t (*user_fault_reset)(void); // pointer to a user function called when a defined fault condition is detected
-}__attribute__((packed))FAULT_OBJECT_t;
+}__attribute__((packed))FAULT_OBJECT_t; // global fault object data structure
 
 /*!fault_object_list[]
  * ***********************************************************************************************
@@ -242,10 +246,9 @@ extern uint16_t fltobj_list_size;
  * Description:
  * The following function prototypes are publicly accessible.
  * ***********************************************************************************************/
-extern inline uint16_t CheckCPUResetRootCause(void);
+extern inline volatile uint16_t CheckCPUResetRootCause(void);
+extern inline volatile uint16_t exec_FaultCheckAll(void);
+//extern inline volatile uint16_t exec_FaultCheckSequential(void);
 
-extern inline uint16_t exec_FaultCheckAll(void);
-extern inline uint16_t exec_FaultCheckSequential(void);
-
-#endif	/* _APPLLICAITON_LAYER_FAULT_HANDLER_H_ */
+#endif	/* _ROOT_LAYER_FAULT_HANDLER_H_ */
 

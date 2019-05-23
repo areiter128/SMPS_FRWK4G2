@@ -1,10 +1,11 @@
-/* ***********************************************************************************************
- * File:        10888_P33CK_R30_pinmap.h                                                             
+/*!MA33048_P33CK_R30_pinmap.h
+ * ***********************************************************************************************
+ * File:        MA33048_P33CK_R30_pinmap.h                                                             
  * Author:      M91406                                                                         
  * Comments:    Hardware abstraction layer device pinout descriptor                                
- * Board ID:    10888_P33CK                                                                       
- * Date:        05/17/2019                                                                             
- * Build:       0004                                                                       
+ * Board ID:    MA33048_P33CK                                                                       
+ * Date:        05/22/2019                                                                             
+ * Build:       0008                                                                       
  *                                                                                                 
  * Description:                                                                                    
  * This is a header file template adding signal labels for the hardware abstraction layer          
@@ -56,15 +57,15 @@
  * ***********************************************************************************************/    
 // This is a guard condition so that contents of this file are not included
 // more than once.
-#ifndef __10888_P33CK_R30_PINMAP_H__
-#define __10888_P33CK_R30_PINMAP_H__
+#ifndef __MA33048_P33CK_R30_PINMAP_H__
+#define __MA33048_P33CK_R30_PINMAP_H__
 
 #include <xc.h> // include processor files - each processor file is guarded 
 #include <stdint.h> // Include standard integer types                       
 #include <stdbool.h> // Include standard boolean types                      
 #include "mcal/mcal.h" // Include local mcal layer header file        
 
-/* @@PNMAP_VERSION
+/*!PINMAP_VERSION
  * ***********************************************************************************************
  * Description:
  * This flag is a user defined flag helping to provide version information about the
@@ -1567,8 +1568,4 @@
 // Device Pin #57 is VDD
 
 
-
-//#endif
-
-
-#endif	/* __10888_P33CK_R30_PINMAP_H__ */
+#endif	/* __MA33048_P33CK_R30_PINMAP_H__ */

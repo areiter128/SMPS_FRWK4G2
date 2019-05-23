@@ -1,10 +1,11 @@
-/* ***********************************************************************************************
- * File:        10889_P33CH_R10_pinmap.h                                                             
+/*!MA330045_P33CH_R10_pinmap.h
+ * ***********************************************************************************************
+ * File:        MA330045_P33CH_R10_pinmap.h                                                             
  * Author:      M91406                                                                         
  * Comments:    Hardware abstraction layer device pinout descriptor                                
- * Board ID:    10889_P33CH                                                                       
- * Date:        05/17/2019                                                                             
- * Build:       0031                                                                       
+ * Board ID:    MA330045_P33CH                                                                       
+ * Date:        05/23/2019                                                                             
+ * Build:       0036                                                                       
  *                                                                                                 
  * Description:                                                                                    
  * This is a header file template adding signal labels for the hardware abstraction layer          
@@ -56,20 +57,20 @@
  * ***********************************************************************************************/    
 // This is a guard condition so that contents of this file are not included
 // more than once.
-#ifndef __10889_P33CH_R10_PINMAP_H__
-#define __10889_P33CH_R10_PINMAP_H__
+#ifndef __MA330045_P33CH_R10_PINMAP_H__
+#define __MA330045_P33CH_R10_PINMAP_H__
 
 #include <xc.h> // include processor files - each processor file is guarded 
 #include <stdint.h> // Include standard integer types                       
 #include <stdbool.h> // Include standard boolean types                      
 #include "mcal/mcal.h" // Include local mcal layer header file        
 
-/* @@PNMAP_VERSION
+/*!PINMAP_VERSION
  * ***********************************************************************************************
  * Description:
  * This flag is a user defined flag helping to provide version information about the
  * pinmap file. This string can be used universally across the firmware to identify the
- * hardware version this firmaware was written for.
+ * hardware version this firmware was written for.
  *
  * Please Note:
  * His label is not connected to the generic macro specified in the compiler settings
@@ -331,6 +332,37 @@
 	#define ECP10_INIT_OUTPUT  {ECP10_WR = PINSTATE_LOW; ECP10_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
 	#define ECP10_INIT_INPUT   {ECP10_WR = PINSTATE_HIGH; ECP10_TRIS = PINDIR_INPUT;} // initialization macro for digital input
 	
+// Device Pin #16 is RA2
+	#define ECP11_TRIS    TRISAbits.TRISA2 // GPIO direction register bit
+	#define ECP11_WR      LATAbits.LATA2 // GPIO port latch register bit
+	#define ECP11_RD      PORTAbits.RA2 // GPIO port register bit
+	#define ECP11_ODC     ODCAbits.ODCA2 // GPIO port open drain configuration register bit
+	#define ECP11_CNPU    CNPUAbits.CNPUA2 // GPIO port pull-up resistor register bit
+	#define ECP11_CNPD    CNPDAbits.CNPDA2 // GPIO port pull-down resistor register bit
+	#define ECP11_CNEN0   CNEN0Abits.CNEN0A2 // GPIO port change notification Enable register bit
+	#define ECP11_CNSTAT  CNSTATAbits.CNSTATA2 // GPIO port change notification Status register bit
+	#define ECP11_CNEN1   CNEN1Abits.CNEN1A2 // GPIO port change notification Edge Select Enable register bit
+	#define ECP11_CNF     CNFAbits.CNFA2 // GPIO port change notification flag bit register bit
+	#define ECP11_SET     { asm volatile ("bset _LATA, #2 \n"); }
+	#define ECP11_CLEAR   { asm volatile ("bclr _LATA, #2 \n"); }
+	#define ECP11_TOGGLE  { asm volatile ("btg  _LATA, #2 \n"); }
+	#define ECP11_IS_ANALOG_INPUT  1 // Pin is/is not analog input 
+	#define ECP11_ANSEL   _ANSELA2 // analog/digital pin configuration register bit
+	#define ECP11_ADCCORE 0 // index starts from zero, last index indicated shared adC core
+	#define ECP11_IS_SHARED_CORE true // AN input is routed to a dedicated or shared ACD core
+	#define ECP11_ADC_AN_INPUT 2   // ANx input pin number
+	#define ECP11_ADCBUF  ADCBUF2 // ADC buffer register for this input
+	#define ECP11_ADC_ANIE ADIELbits.IE2
+	#define ECP11_ADC_ANEIE ADEIELbits.EIEN2
+	#define ECP11_ADC_IF   _ADCAN2IF // interrupt flag bit
+	#define ECP11_ADC_IE   _ADCAN2IE // interrupt enable bit
+	#define ECP11_ADC_IP   _ADCAN2IP // interrupt priority for this analog input
+	#define ECP11_ADC_RDY  _AN2RDY // ADC buffer ready bit
+	#define _ECP11_ADC_Interrupt _ADCAN2Interrupt
+	#define ECP11_INIT_ANALOG	{ECP11_ANSEL = 1; ECP11_WR = PINSTATE_HIGH; ECP11_TRIS = PINDIR_INPUT;} // initialization macro for analog input
+	#define ECP11_INIT_OUTPUT  {ECP11_WR = PINSTATE_LOW; ECP11_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
+	#define ECP11_INIT_INPUT   {ECP11_WR = PINSTATE_HIGH; ECP11_TRIS = PINDIR_INPUT;} // initialization macro for digital input
+	
 // Device Pin #17 is RA3
 	#define ECP12_TRIS    TRISAbits.TRISA3 // GPIO direction register bit
 	#define ECP12_WR      LATAbits.LATA3 // GPIO port latch register bit
@@ -423,6 +455,37 @@
 	#define ECP14_INIT_ANALOG	{ECP14_ANSEL = 1; ECP14_WR = PINSTATE_HIGH; ECP14_TRIS = PINDIR_INPUT;} // initialization macro for analog input
 	#define ECP14_INIT_OUTPUT  {ECP14_WR = PINSTATE_LOW; ECP14_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
 	#define ECP14_INIT_INPUT   {ECP14_WR = PINSTATE_HIGH; ECP14_TRIS = PINDIR_INPUT;} // initialization macro for digital input
+	
+// Device Pin #14 is RA0
+	#define ECP15_TRIS    TRISAbits.TRISA0 // GPIO direction register bit
+	#define ECP15_WR      LATAbits.LATA0 // GPIO port latch register bit
+	#define ECP15_RD      PORTAbits.RA0 // GPIO port register bit
+	#define ECP15_ODC     ODCAbits.ODCA0 // GPIO port open drain configuration register bit
+	#define ECP15_CNPU    CNPUAbits.CNPUA0 // GPIO port pull-up resistor register bit
+	#define ECP15_CNPD    CNPDAbits.CNPDA0 // GPIO port pull-down resistor register bit
+	#define ECP15_CNEN0   CNEN0Abits.CNEN0A0 // GPIO port change notification Enable register bit
+	#define ECP15_CNSTAT  CNSTATAbits.CNSTATA0 // GPIO port change notification Status register bit
+	#define ECP15_CNEN1   CNEN1Abits.CNEN1A0 // GPIO port change notification Edge Select Enable register bit
+	#define ECP15_CNF     CNFAbits.CNFA0 // GPIO port change notification flag bit register bit
+	#define ECP15_SET     { asm volatile ("bset _LATA, #0 \n"); }
+	#define ECP15_CLEAR   { asm volatile ("bclr _LATA, #0 \n"); }
+	#define ECP15_TOGGLE  { asm volatile ("btg  _LATA, #0 \n"); }
+	#define ECP15_IS_ANALOG_INPUT  1 // Pin is/is not analog input 
+	#define ECP15_ANSEL   _ANSELA0 // analog/digital pin configuration register bit
+	#define ECP15_ADCCORE 0 // index starts from zero, last index indicated shared adC core
+	#define ECP15_IS_SHARED_CORE true // AN input is routed to a dedicated or shared ACD core
+	#define ECP15_ADC_AN_INPUT 0   // ANx input pin number
+	#define ECP15_ADCBUF  ADCBUF0 // ADC buffer register for this input
+	#define ECP15_ADC_ANIE ADIELbits.IE0
+	#define ECP15_ADC_ANEIE ADEIELbits.EIEN0
+	#define ECP15_ADC_IF   _ADCAN0IF // interrupt flag bit
+	#define ECP15_ADC_IE   _ADCAN0IE // interrupt enable bit
+	#define ECP15_ADC_IP   _ADCAN0IP // interrupt priority for this analog input
+	#define ECP15_ADC_RDY  _AN0RDY // ADC buffer ready bit
+	#define _ECP15_ADC_Interrupt _ADCAN0Interrupt
+	#define ECP15_INIT_ANALOG	{ECP15_ANSEL = 1; ECP15_WR = PINSTATE_HIGH; ECP15_TRIS = PINDIR_INPUT;} // initialization macro for analog input
+	#define ECP15_INIT_OUTPUT  {ECP15_WR = PINSTATE_LOW; ECP15_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
+	#define ECP15_INIT_INPUT   {ECP15_WR = PINSTATE_HIGH; ECP15_TRIS = PINDIR_INPUT;} // initialization macro for digital input
 	
 // Device Pin #31 is RD10
 	#define ECP16_TRIS    TRISDbits.TRISD10 // GPIO direction register bit
@@ -1320,58 +1383,9 @@
 	
 #elif defined (__P33SMPS_CH_SLV1__)
 
-// Device Pin #16 is RA2
-	#define ECP11_TRIS    TRISAbits.TRISA2 // GPIO direction register bit
-	#define ECP11_WR      LATAbits.LATA2 // GPIO port latch register bit
-	#define ECP11_RD      PORTAbits.RA2 // GPIO port register bit
-	#define ECP11_ODC     ODCAbits.ODCA2 // GPIO port open drain configuration register bit
-	#define ECP11_CNPU    CNPUAbits.CNPUA2 // GPIO port pull-up resistor register bit
-	#define ECP11_CNPD    CNPDAbits.CNPDA2 // GPIO port pull-down resistor register bit
-	#define ECP11_CNEN0   CNEN0Abits.CNEN0A2 // GPIO port change notification Enable register bit
-	#define ECP11_CNSTAT  CNSTATAbits.CNSTATA2 // GPIO port change notification Status register bit
-	#define ECP11_CNEN1   CNEN1Abits.CNEN1A2 // GPIO port change notification Edge Select Enable register bit
-	#define ECP11_CNF     CNFAbits.CNFA2 // GPIO port change notification flag bit register bit
-	#define ECP11_SET     { asm volatile ("bset _LATA, #2 \n"); }
-	#define ECP11_CLEAR   { asm volatile ("bclr _LATA, #2 \n"); }
-	#define ECP11_TOGGLE  { asm volatile ("btg  _LATA, #2 \n"); }
-	#define ECP11_IS_ANALOG_INPUT  1 // Pin is/is not analog input 
-	#define ECP11_ANSEL   _ANSELA2 // analog/digital pin configuration register bit
-	#define ECP11_ADCCORE 2 // index starts from zero, last index indicated shared adC core
-	#define ECP11_IS_SHARED_CORE true // AN input is routed to a dedicated or shared ACD core
-	#define ECP11_ADC_AN_INPUT 16   // ANx input pin number
-	#define ECP11_ADCBUF  ADCBUF16 // ADC buffer register for this input
-	#define ECP11_ADC_ANIE ADIEHbits.IE16
-	#define ECP11_ADC_ANEIE ADEIEHbits.EIEN16
-	#define ECP11_ADC_IF   _ADCAN16IF // interrupt flag bit
-	#define ECP11_ADC_IE   _ADCAN16IE // interrupt enable bit
-	#define ECP11_ADC_IP   _ADCAN16IP // interrupt priority for this analog input
-	#define ECP11_ADC_RDY  _AN16RDY // ADC buffer ready bit
-	#define _ECP11_ADC_Interrupt _ADCAN16Interrupt
-	#define ECP11_INIT_ANALOG	{ECP11_ANSEL = 1; ECP11_WR = PINSTATE_HIGH; ECP11_TRIS = PINDIR_INPUT;} // initialization macro for analog input
-	#define ECP11_INIT_OUTPUT  {ECP11_WR = PINSTATE_LOW; ECP11_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
-	#define ECP11_INIT_INPUT   {ECP11_WR = PINSTATE_HIGH; ECP11_TRIS = PINDIR_INPUT;} // initialization macro for digital input
-	
-// Device Pin #14 is RA0
-	#define ECP15_TRIS    TRISAbits.TRISA0 // GPIO direction register bit
-	#define ECP15_WR      LATAbits.LATA0 // GPIO port latch register bit
-	#define ECP15_RD      PORTAbits.RA0 // GPIO port register bit
-	#define ECP15_ODC     ODCAbits.ODCA0 // GPIO port open drain configuration register bit
-	#define ECP15_CNPU    CNPUAbits.CNPUA0 // GPIO port pull-up resistor register bit
-	#define ECP15_CNPD    CNPDAbits.CNPDA0 // GPIO port pull-down resistor register bit
-	#define ECP15_CNEN0   CNEN0Abits.CNEN0A0 // GPIO port change notification Enable register bit
-	#define ECP15_CNSTAT  CNSTATAbits.CNSTATA0 // GPIO port change notification Status register bit
-	#define ECP15_CNEN1   CNEN1Abits.CNEN1A0 // GPIO port change notification Edge Select Enable register bit
-	#define ECP15_CNF     CNFAbits.CNFA0 // GPIO port change notification flag bit register bit
-	#define ECP15_SET     { asm volatile ("bset _LATA, #0 \n"); }
-	#define ECP15_CLEAR   { asm volatile ("bclr _LATA, #0 \n"); }
-	#define ECP15_TOGGLE  { asm volatile ("btg  _LATA, #0 \n"); }
-	#define ECP15_IS_ANALOG_INPUT  0 // Pin is/is not analog input 
-	#define ECP15_INIT_OUTPUT  {ECP15_WR = PINSTATE_LOW; ECP15_TRIS = PINDIR_OUTPUT;} // initialization macro for digital output
-	#define ECP15_INIT_INPUT   {ECP15_WR = PINSTATE_HIGH; ECP15_TRIS = PINDIR_INPUT;} // initialization macro for digital input
-	
 
 
 #endif
 
 
-#endif	/* __10889_P33CH_R10_PINMAP_H__ */
+#endif	/* __MA330045_P33CH_R10_PINMAP_H__ */

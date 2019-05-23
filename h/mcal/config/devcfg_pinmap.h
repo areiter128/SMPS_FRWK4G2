@@ -39,11 +39,11 @@
 extern "C" {
 #endif /* __cplusplus */
 
-    #ifdef __10888_P33CK_R30__
-        #include "10888_P33CK_R30_pinmap.h"
+    #ifdef __MA330048_P33CK_R30__
+        #include "MA330048_P33CK_R30_pinmap.h"
     #endif
-    #ifdef __10889_P33CH_R10__
-        #include "10889_P33CH_R10_pinmap.h"
+    #ifdef __MA330045_P33CH_R10__
+        #include "MA330045_P33CH_R10_pinmap.h"
     #endif
     
 #ifdef	__cplusplus

@@ -32,7 +32,8 @@
  * such as an auxiliary power supply, before any other function can be enabled.
  * 
  * This code module will be called right after the DEVICE_Reset function call and only
- * if the user option EXECUTE_USER_STARTUP_CODE in the header file apl.h is set to 1 
+ * if the user option EXECUTE_USER_STARTUP_CODE in the header file task_manager_config.h 
+ * is set to 1 
  *
  * References:
  * -
