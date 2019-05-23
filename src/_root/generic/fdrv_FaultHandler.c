@@ -245,10 +245,9 @@ inline volatile uint16_t SetFaultCondition(volatile FAULT_OBJECT_t* fltobj)
  *     1 = Success (notification-level reset condition)
  *     2 = Warning (warning-level reset condition)
  * ***********************************************************************************************/
-inline uint16_t CheckCPUResetRootCause(void)
+inline volatile uint16_t CheckCPUResetRootCause(void)
 {
     volatile uint16_t fres = 1;
-/*
     
     // TODO: return value needs to be properly defined and made accessible and fault handling 
     // routines need to be installed
@@ -269,14 +268,21 @@ inline uint16_t CheckCPUResetRootCause(void)
 
         fres = 2;
     }
-    else {
+    else if (traplog.rcon_reg.reg_block & FLT_CPU_RESET_CLASS_NORMAL) {
         // TODO: handle exceptions after restart 
         Nop();    
         Nop();    
 
         fres = 1;
     }
-*/
+    else {
+        // TODO: handle exceptions after restart 
+        Nop();    
+        Nop();    
+
+        fres = 3;
+    }
+
     return(fres);
 }
 
@@ -484,7 +490,7 @@ inline volatile uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fl
  * any fault action triggered will be executed immediately after every individual fault object 
  * check.
  * ***********************************************************************************************/
-uint16_t exec_FaultCheckAll(void)
+uint16_t volatile exec_FaultCheckAll(void)
 {
     volatile uint16_t i=0, global_fault_present=0, fres=1;
     
@@ -546,7 +552,7 @@ uint16_t exec_FaultCheckAll(void)
  * individual fault object check.
  * ***********************************************************************************************/
 /*
-uint16_t exec_FaultCheckSequential(void)
+uint16_t volatile exec_FaultCheckSequential(void)
 {
     volatile uint16_t fres = 0;
     

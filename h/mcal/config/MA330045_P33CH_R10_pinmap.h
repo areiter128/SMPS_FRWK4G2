@@ -1,10 +1,11 @@
-/* ***********************************************************************************************
+/*!MA330045_P33CH_R10_pinmap.h
+ * ***********************************************************************************************
  * File:        MA330045_P33CH_R10_pinmap.h                                                             
  * Author:      M91406                                                                         
  * Comments:    Hardware abstraction layer device pinout descriptor                                
  * Board ID:    MA330045_P33CH                                                                       
  * Date:        05/22/2019                                                                             
- * Build:       0033                                                                       
+ * Build:       0034                                                                       
  *                                                                                                 
  * Description:                                                                                    
  * This is a header file template adding signal labels for the hardware abstraction layer          
@@ -64,7 +65,7 @@
 #include <stdbool.h> // Include standard boolean types                      
 #include "mcal/mcal.h" // Include local mcal layer header file        
 
-/* @@PNMAP_VERSION
+/*!PINMAP_VERSION
  * ***********************************************************************************************
  * Description:
  * This flag is a user defined flag helping to provide version information about the

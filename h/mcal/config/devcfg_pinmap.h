@@ -42,7 +42,7 @@ extern "C" {
     #ifdef __MA330048_P33CK_R30__
         #include "MA330048_P33CK_R30_pinmap.h"
     #endif
-    #ifdef __MA330045_P33CK_R10__
+    #ifdef __MA330045_P33CH_R10__
         #include "MA330045_P33CH_R10_pinmap.h"
     #endif
     

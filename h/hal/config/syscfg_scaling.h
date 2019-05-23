@@ -79,7 +79,7 @@
 
 #endif
 
-#ifdef __MA330045_P33CK_R10__
+#ifdef __MA330045_P33CH_R10__
 
     // DSC bias voltage
     #define DEVICE_VDD                  3.300       // Device bias voltage in [V]
