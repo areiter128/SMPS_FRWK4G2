@@ -2,8 +2,7 @@ Attribute VB_Name = "modCodeGeneration"
 Option Explicit
 
 Private Const FILE_COMMENT_START As String = _
-    "/*!%BOARD_LABEL%_pinmap.h" & vbCrLf & _
-    " * ***********************************************************************************************" & vbCrLf & _
+    "/* ***********************************************************************************************" & vbCrLf & _
     " * File:        %BOARD_LABEL%_pinmap.h                                                             " & vbCrLf & _
     " * Author:      %USERNAME%                                                                         " & vbCrLf & _
     " * Comments:    Hardware abstraction layer device pinout descriptor                                " & vbCrLf & _
@@ -80,7 +79,7 @@ Private Const FILE_INCLUSIONS As String = _
     vbCrLf
 
 Private Const PINMAP_VERSION_COMMENT As String = _
-    "/*!PINMAP_VERSION" & vbCrLf & _
+    "/* @@PNMAP_VERSION" & vbCrLf & _
     " * ***********************************************************************************************" & vbCrLf & _
     " * Description:" & vbCrLf & _
     " * This flag is a user defined flag helping to provide version information about the" & vbCrLf & _
@@ -465,12 +464,15 @@ Dim strOut, dum, ref, pin As String
             End If
             
             pwm_channel = Left$(Trim$(dum), Len(dum) - 1) ' extracts the PWM channel number 1...n
-            pwm_pin = Right$(Trim$(dum), 1) ' extracts L or H
+            pwm_pin = UCase(Right$(Trim$(dum), 1)) ' extracts L or H
             
             strOut = strOut & "#define " & ref & "_PGx_CHANNEL  " & pwm_channel & " // PWM channel index" & vbCrLf
             strOut = strOut & "#define " & ref & "_PGx_PER      PG" & pwm_channel & "PER // PWM channel period register" & vbCrLf
             strOut = strOut & "#define " & ref & "_PGx_PHASE    PG" & pwm_channel & "PHASE // PWM channel phase register" & vbCrLf
             strOut = strOut & "#define " & ref & "_PGx_DC       PG" & pwm_channel & "DC // PWM channel duty cycle register" & vbCrLf
+            strOut = strOut & "#define " & ref & "_PGx_DCA      PG" & pwm_channel & "DCA// PWM channel duty cycle A register" & vbCrLf
+            strOut = strOut & "#define " & ref & "_PGx_DTH      PG" & pwm_channel & "DTH // PWM channel rising edge dead time register" & vbCrLf
+            strOut = strOut & "#define " & ref & "_PGx_DTL      PG" & pwm_channel & "DTL // PWM channel falling edge dead time register" & vbCrLf
             
             If InStr(1, pwm_pin, "H", vbTextCompare) = 1 Then
                 strOut = strOut & "#define " & ref & "_PGx_OVRENH   PG" & pwm_channel & "IOCONLbits.OVRENH // PWM channel IO config register override high control bit" & vbCrLf
@@ -484,6 +486,17 @@ Dim strOut, dum, ref, pin As String
             strOut = strOut & "#define " & ref & "_PGxTRIGA     PG" & pwm_channel & "TRIGA // PWM channel ADC trigger A register" & vbCrLf
             strOut = strOut & "#define " & ref & "_PGxTRIGB     PG" & pwm_channel & "TRIGB // PWM channel ADC trigger A register" & vbCrLf
             strOut = strOut & "#define " & ref & "_PGxTRIGC     PG" & pwm_channel & "TRIGC // PWM channel ADC trigger A register" & vbCrLf
+        
+            If pwm_pin = "H" Then
+        
+                strOut = strOut & "#define " & ref & "_PWM_IF       _PWM" & pwm_channel & "IF // interrupt flag bit" & vbCrLf
+                strOut = strOut & "#define " & ref & "_PWM_IE       _PWM" & pwm_channel & "IE // interrupt enable bit" & vbCrLf
+                strOut = strOut & "#define " & ref & "_PWM_IP       _PWM" & pwm_channel & "IP // interrupt priority for this analog input" & vbCrLf
+                strOut = strOut & "#define _" & ref & "_PWM_Interrupt _PWM" & pwm_channel & "Interrupt // Interrupt Service Routine name declaration" & vbCrLf
+            
+            End If
+            
+        
         
         End If
             
