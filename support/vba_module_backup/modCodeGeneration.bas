@@ -84,7 +84,7 @@ Private Const PINMAP_VERSION_COMMENT As String = _
     " * Description:" & vbCrLf & _
     " * This flag is a user defined flag helping to provide version information about the" & vbCrLf & _
     " * pinmap file. This string can be used universally across the firmware to identify the" & vbCrLf & _
-    " * hardware version this firmaware was written for." & vbCrLf & _
+    " * hardware version this firmware was written for." & vbCrLf & _
     " *" & vbCrLf & _
     " * Please Note:" & vbCrLf & _
     " * His label is not connected to the generic macro specified in the compiler settings" & vbCrLf & _

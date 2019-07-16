@@ -1,6 +1,6 @@
-/*!MA33048_P33CK_R30_pinmap.h
+/*!MA330048_P33CK_R30_pinmap.h
  * ***********************************************************************************************
- * File:        MA33048_P33CK_R30_pinmap.h                                                             
+ * File:        MA330048_P33CK_R30_pinmap.h                                                             
  * Author:      M91406                                                                         
  * Comments:    Hardware abstraction layer device pinout descriptor                                
  * Board ID:    MA33048_P33CK                                                                       
@@ -57,8 +57,8 @@
  * ***********************************************************************************************/    
 // This is a guard condition so that contents of this file are not included
 // more than once.
-#ifndef __MA33048_P33CK_R30_PINMAP_H__
-#define __MA33048_P33CK_R30_PINMAP_H__
+#ifndef __MA330048_P33CK_R30_PINMAP_H__
+#define __MA330048_P33CK_R30_PINMAP_H__
 
 #include <xc.h> // include processor files - each processor file is guarded 
 #include <stdint.h> // Include standard integer types                       
@@ -1568,4 +1568,4 @@
 // Device Pin #57 is VDD
 
 
-#endif	/* __MA33048_P33CK_R30_PINMAP_H__ */
+#endif	/* __MA330048_P33CK_R30_PINMAP_H__ */
