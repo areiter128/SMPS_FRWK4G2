@@ -52,10 +52,10 @@
  * PROTOTYPES
  * ***********************************************************************************************/
 
-extern inline uint16_t OS_Initialize(void);
-extern inline uint16_t CLOCK_Initialize(void);
-extern inline uint16_t Device_Reset(void);
-extern inline uint16_t APPLICATION_Initialize(void);
+extern volatile uint16_t OS_Initialize(void);
+extern volatile uint16_t CLOCK_Initialize(void);
+extern volatile uint16_t Device_Reset(void);
+extern volatile uint16_t APPLICATION_Initialize(void);
 
 #endif	/* APPLICATION_LAYER_H */
 

@@ -92,7 +92,7 @@ volatile uint16_t init_aux_oscillator(void) {
 
     volatile uint16_t fres = 0;
     
-    fres = init_AUXCLK_500MHz();
+    fres = init_AUXCLK_Defaults(AFPLLO_500_MHZ);
    
     return(fres);
 }
