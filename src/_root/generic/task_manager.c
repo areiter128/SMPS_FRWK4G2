@@ -64,7 +64,7 @@ volatile task_manager_settings_t task_mgr; // Declare a data structure holding t
 // execute task manager scheduler
 //------------------------------------------------------------------------------
 
-uint16_t task_manager_tick(void) {
+inline volatile uint16_t task_manager_tick(void) {
 
     volatile uint16_t fres = 0, tbuf = 0;
 
@@ -118,7 +118,7 @@ uint16_t task_manager_tick(void) {
 // Check operation mode status and switch op mode if needed
 //------------------------------------------------------------------------------
 
-uint16_t task_CheckOperationModeStatus(void) {
+inline volatile uint16_t task_CheckOperationModeStatus(void) {
 
     // Short Fix if MCC Configuration is used
     if ((task_mgr.pre_op_mode.mode == OP_MODE_BOOT) && (task_mgr.op_mode.mode == OP_MODE_BOOT)) 
@@ -247,9 +247,9 @@ uint16_t task_CheckOperationModeStatus(void) {
 // Basic Task Manager Structure Initialization
 // ==============================================================================================
 
-uint16_t init_TaskManager(void) {
+inline volatile uint16_t init_TaskManager(void) {
 
-    uint16_t fres = 1;
+    volatile uint16_t fres = 1;
 
     // initialize private flag variable pre-op-mode used by task_CheckOperationModeStatus to identify changes in op_mode
     task_mgr.pre_op_mode.mode = OP_MODE_BOOT;

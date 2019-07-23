@@ -161,13 +161,13 @@
  * values for scalers and gating options will be selected and adjusted accordingly.
  * ***********************************************************************************************/
 
-#define OSC_FREQ ((uint32_t)((float)OSC_FRC_FREQ + (float)((float)OSC_FRC_TUN * (OSC_TUN_SCALER * (float)OSC_FRC_FREQ))))
+#define OSC_FREQ ((uint32_t)((float)OSC_FRC_FREQ + (float)((float)OSC_FRC_TUN * (OSC_TUN_STEP_PERCENTAGE * (float)OSC_FRC_FREQ))))
 
 // this oscillator frequency will be used in further macros
 #define OSC_FREQUENCY		OSC_FREQ    
 
 // FRC Output Frequency in Hertz (incl. OSCTUN)
-#define AUXOSCFREQUENCY	((uint32_t)(OSC_FRC_FREQ + (OSC_FRC_TUN * (OSC_TUN_SCALER * OSC_FRC_FREQ))))
+#define AUXOSCFREQUENCY	((uint32_t)(OSC_FRC_FREQ + (OSC_FRC_TUN * (OSC_TUN_STEP_PERCENTAGE * OSC_FRC_FREQ))))
 
 // PLL Output Frequency in Hertz (~100 MHz max.)
 #define FOSC	(uint32_t)((((float)OSC_FREQUENCY * (float)OSC_PLLDIV_M) / ((float)OSC_PLLDIV_N1 * (float)OSC_PLLDIV_N2 * (float)OSC_PLLDIV_N3)) / 2.0)

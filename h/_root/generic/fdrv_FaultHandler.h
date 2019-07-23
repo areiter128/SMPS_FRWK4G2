@@ -212,8 +212,8 @@ typedef struct
  * status information, fault classes and user fault actions.
  * ***********************************************************************************************/
 
-extern FAULT_OBJECT_t *fault_object_list[];
-extern uint16_t fltobj_list_size;
+extern volatile FAULT_OBJECT_t *fault_object_list[];
+extern volatile uint16_t fltobj_list_size;
 
 
 /*!CPU Reset Classes
@@ -246,8 +246,8 @@ extern uint16_t fltobj_list_size;
  * Description:
  * The following function prototypes are publicly accessible.
  * ***********************************************************************************************/
-extern inline volatile uint16_t CheckCPUResetRootCause(void);
-extern inline volatile uint16_t exec_FaultCheckAll(void);
+extern volatile uint16_t CheckCPUResetRootCause(void);
+extern volatile uint16_t exec_FaultCheckAll(void);
 //extern inline volatile uint16_t exec_FaultCheckSequential(void);
 
 #endif	/* _ROOT_LAYER_FAULT_HANDLER_H_ */

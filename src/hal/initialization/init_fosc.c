@@ -56,8 +56,14 @@ volatile uint16_t init_oscillator(void) {
     
     volatile uint16_t fres = 0;
 
+#if   defined (__P33SMPS_CK__) || defined (__P33SMPS_CH_SLV__)
+    fres = init_FRCCLK_Defaults(CPU_SPEED_100_MIPS);
+#elif defined (__P33SMPS_CH_MSTR__)
     fres = init_FRCCLK_Defaults(CPU_SPEED_90_MIPS);
-
+#else
+    #pragma message "Error: selected device is currently not supported by init_oscillator()"
+#endif
+    
     return(fres);
 }
 
@@ -86,7 +92,8 @@ volatile uint16_t init_aux_oscillator(void) {
 
     volatile uint16_t fres = 0;
     
-    fres = init_AUXCLK_500MHz();
+    fres = init_AUXCLK_Defaults(AFPLLO_500_MHZ);
    
     return(fres);
 }
+

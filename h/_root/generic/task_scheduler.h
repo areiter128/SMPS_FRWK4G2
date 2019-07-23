@@ -68,7 +68,7 @@ extern volatile uint16_t run_scheduler;
  * ***********************************************************************************************/
     
     
-extern inline volatile uint16_t exec_scheduler(void);
+extern volatile uint16_t exec_scheduler(void);
 
 
 #ifdef	__cplusplus

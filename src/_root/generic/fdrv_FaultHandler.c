@@ -490,7 +490,7 @@ inline volatile uint16_t ExecFaultFlagReleaseHandler(volatile FAULT_OBJECT_t* fl
  * any fault action triggered will be executed immediately after every individual fault object 
  * check.
  * ***********************************************************************************************/
-uint16_t volatile exec_FaultCheckAll(void)
+inline uint16_t volatile exec_FaultCheckAll(void)
 {
     volatile uint16_t i=0, global_fault_present=0, fres=1;
     

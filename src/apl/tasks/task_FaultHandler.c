@@ -84,7 +84,7 @@ inline uint16_t init_MyCustomFaultObject(void);
  * status information, fault classes and user fault actions.
  * ***********************************************************************************************/
 
-FAULT_OBJECT_t *fault_object_list[] = {
+volatile FAULT_OBJECT_t *fault_object_list[] = {
     
     // fault objects for firmware modules and task manager flow
     &fltobj_CPULoadOverrun,    // The CPU meter indicated an overrun condition (no free process time left))
@@ -95,7 +95,7 @@ FAULT_OBJECT_t *fault_object_list[] = {
     &fltobj_PowerSourceFailure, 
 
 };
-uint16_t fltobj_list_size = (sizeof(fault_object_list)/sizeof(fault_object_list[0]));
+volatile uint16_t fltobj_list_size = (sizeof(fault_object_list)/sizeof(fault_object_list[0]));
 
 /*!init_FaultObjects
  * ***********************************************************************************************

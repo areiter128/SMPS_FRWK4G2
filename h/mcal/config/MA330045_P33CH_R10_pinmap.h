@@ -73,7 +73,7 @@
  * hardware version this firmware was written for.
  *
  * Please Note:
- * His label is not connected to the generic macro specified in the compiler settings
+ * This label is not connected to the generic macro specified in the compiler settings
  * and need to maintained by the designer independently.
  * ***********************************************************************************************/
 
