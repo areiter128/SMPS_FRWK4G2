@@ -61,17 +61,18 @@ extern "C" {
 #include "mcal/config/devcfg_pinmap.h"
 
 /* generic peripheral drives */    
-#include "dsPIC33C/p33SMPS_irq.h"
-#include "dsPIC33C/p33SMPS_dsp.h"
-#include "dsPIC33C/p33SMPS_hsadc.h"
-#include "dsPIC33C/p33SMPS_hspwm_c.h"
-#include "dsPIC33C/p33SMPS_gpio.h"
-#include "dsPIC33C/p33SMPS_oscillator.h"
-#include "dsPIC33C/p33SMPS_pmd.h"
-#include "dsPIC33C/p33SMPS_timer.h"
-#include "dsPIC33C/p33SMPS_pps.h"
-#include "dsPIC33C/p33SMPS_pmd.h"
-#include "dsPIC33C/p33SMPS_mailboxes.h"
+#include "../../plib/p33SMPS_mcal.X/p33SMPS_plib.h"
+//#include "dsPIC33C/p33SMPS_irq.h"
+//#include "dsPIC33C/p33SMPS_dsp.h"
+//#include "dsPIC33C/p33SMPS_hsadc.h"
+//#include "dsPIC33C/p33SMPS_hspwm_c.h"
+//#include "dsPIC33C/p33SMPS_gpio.h"
+//#include "dsPIC33C/p33SMPS_oscillator.h"
+//#include "dsPIC33C/p33SMPS_pmd.h"
+//#include "dsPIC33C/p33SMPS_timer.h"
+//#include "dsPIC33C/p33SMPS_pps.h"
+//#include "dsPIC33C/p33SMPS_pmd.h"
+//#include "dsPIC33C/p33SMPS_mailboxes.h"
 
 
 /* ***********************************************************************************************

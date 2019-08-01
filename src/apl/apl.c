@@ -64,13 +64,13 @@ inline volatile uint16_t CLOCK_Initialize(void){
     
     // Initialize main oscillator and auxiliary clock
     //Remove: fres = init_SoftwareWatchDogTimer();
-    fres &= init_oscillator();      // Initialize 
-    fres &= init_aux_oscillator();
-    fres &= osc_get_frequencies(0); 
+    fres &= init_oscillator();      // Initialize main CPU clock
+    fres &= init_aux_oscillator();  // Initialize auxiliary clock for ADC, PWM and DAC peripheral
+    fres &= osc_get_frequencies(0); // Update system frequencies data structure
     
     // Setup and start Timer1 as base clock for the task scheduler
-    fres &= init_system_timer();               // Initialize timer @ 10 kHz
-    fres &= launch_system_timer();             // Enable Timer without interrupts
+    fres &= init_system_timer();    // Initialize timer @ 10 kHz
+    fres &= launch_system_timer();  // Enable Timer without interrupts
 
     return(fres);
     
