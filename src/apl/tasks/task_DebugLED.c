@@ -42,8 +42,8 @@
 #include <xc.h>
 #include "apl/tasks/task_DebugLED.h"
 
-#define DEBUG_LED_TICK_RATE_DEFAULT  1000 // default on-time during normal operation
-#define DEBUG_LED_TICK_RATE_FAULT    100 // default on-time during critical fault conditions
+#define DEBUG_LED_TICK_RATE_DEFAULT  2999 // default on-time during normal operation
+#define DEBUG_LED_TICK_RATE_FAULT    99 // default on-time during critical fault conditions
 
 volatile FUNCTION_LED_CONFIG_t taskDebugLED_config;
 
